@@ -82,8 +82,8 @@ public class App extends Application {
 
     //servicios
     public void inicializarData(){
-        Cliente cliente = new Cliente("12233", "juan", "apellido");
-        empresa.agregarCliente(cliente);
+        Mascota mascota = new Mascota();
+        veterinaria.agregarMascota(mascota);
     }
 }
 
