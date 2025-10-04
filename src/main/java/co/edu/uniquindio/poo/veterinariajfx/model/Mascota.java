@@ -1,21 +1,23 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public abstract class Mascota {
-    public class Mascota {
         // Atributos Propios
         protected String nombre;
         protected String id;
         protected String raza;
         protected Double peso;
-        protected int EdadEnMeses;
+        protected Integer edadEnMeses;
 
 
         // Atributos de Relaciones
         private Propietario thePropietario;
 
-        public Mascota(String nombre, String id) {
+        public Mascota(String nombre, String id, String raza, Double peso, Integer edadEnMeses) {
             this.nombre = nombre;
             this.id = id;
+            this.raza = raza;
+            this.peso = peso;
+            this.edadEnMeses = edadEnMeses;
         }
 
         public String getNombre() {
@@ -45,4 +47,3 @@ public abstract class Mascota {
     }
 
 
-}
