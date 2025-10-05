@@ -8,6 +8,7 @@ public class Veterinaria {
     private String nit;
     private List<Propietario> listPropietarios;
     private List<Mascota> listMascotas;
+    private List<Consulta> listConsultas;
 
     public Veterinaria(String nombre, String nit) {
         this.nombre = nombre;
@@ -82,6 +83,8 @@ public class Veterinaria {
         this.nombre = nombre;
     }
 
+
+
     @Override
     public String toString() {
         return "Veterinaria{" +
@@ -89,4 +92,5 @@ public class Veterinaria {
                 ", nit='" + nit + '\'' +
                 '}';
     }
+
 }

@@ -36,14 +36,50 @@ public abstract class Mascota {
             this.id = id;
         }
 
+        public String getRaza() {
+            return raza;
+        }
+
+        public void setRaza(String raza) {
+            this.raza = raza;
+        }
+
+        public Double getPeso() {
+            return peso;
+        }
+
+        public void setPeso(Double peso) {
+            this.peso = peso;
+        }
+
+        public Integer getEdadEnMeses() {
+            return edadEnMeses;
+        }
+
+        public void setEdadEnMeses(Integer edadEnMeses) {
+            this.edadEnMeses = edadEnMeses;
+        }
+
         public Propietario getThePropietario() {
-            return thePropietario;
+                return thePropietario;
+            }
+
+            public void setThePropietario(Propietario thePropietario) {
+                this.thePropietario = thePropietario;
+        }
+        public String CategoriaDeEdad(Integer edadEnMeses) {
+            String categoria = "";
+            if(edadEnMeses>0 && edadEnMeses<12){
+                categoria = "Su mascota es joven";
+            if (edadEnMeses>=13 && edadEnMeses<=84){
+                categoria = "Su mascota es adulto";
+            if(edadEnMeses>84{
+                categoria = "Su mascota es senior";
+            }
+            }
+            }
+            return categoria;
         }
 
-        public void setThePropietario(Propietario thePropietario) {
-            this.thePropietario = thePropietario;
-        }
-
-    }
-
+}
 

@@ -4,10 +4,10 @@ public class Ave extends Mascota{
     private String TIpoDePlumaje;
     private Boolean CapacidadDeVuelo;
     private String CantidadDeImitaciones;
-    public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String TipoDePlumaje,Boolean CapacidadVuelo,String CapacidadDeImitaciones){
+    public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
         super(nombre,id,raza,peso,edadEnMeses);
         this.TIpoDePlumaje = TipoDePlumaje;
-        this.CapacidadDeVuelo = CapacidadVuelo;
+        this.CapacidadDeVuelo = CapacidadDeVuelo;
         this.CantidadDeImitaciones = CapacidadDeImitaciones;
     }
 
@@ -34,4 +34,5 @@ public class Ave extends Mascota{
     public void setCantidadDeImitaciones(String cantidadDeImitaciones) {
         CantidadDeImitaciones = cantidadDeImitaciones;
     }
+
 }
