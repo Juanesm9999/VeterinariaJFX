@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,8 @@ public class Veterinaria {
     public Veterinaria(String nombre, String nit) {
         this.nombre = nombre;
         this.nit = nit;
-        listMascotas = new ArrayList<>();
-        listPropietarios = new ArrayList<>();
+        this.listMascotas = new ArrayList<>();
+        this.listPropietarios = new ArrayList<>();
     }
 
     // -------------------------------- CRUD Mascota ---------------------------------
@@ -82,7 +83,44 @@ public class Veterinaria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    public double calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie) {
+        for (Mascota mascota : listMascotas) {
+            if (mascota.getEspecie().equalsIgnoreCase("Ave") || mascota.getEspecie().equalsIgnoreCase("Reptil")) {
+                costoTotal = precioBase * 1.50;
+            }
+            if(mascota.getEdadEnMeses() >84 ) {
+                costoTotal = precioBase + 5000;
+            }
+            if(mascota.getTipoConsulta()= TipoConsulta.URGENCIA){
+                costoTotal= precioBase + 4000;
+            }
 
+        }
+        return costoTotal;
+    }
+    public String FechaVacunacion() {
+        String fechaVacunacion = "";
+        for (Mascota mascota : listMascotas) {
+            if(mascota.getEspecie().equalsIgnoreCase("Perro") || mascota.getEspecie().equalsIgnoreCase("Gato")){
+                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 12 meses";
+            }
+            if(mascota.getEspecie().equalsIgnoreCase("Ave")){
+                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 8 meses";
+            }
+            if(mascota.getEspecie().equalsIgnoreCase("Reptil")){
+                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 18 meses";
+            }
+
+        }
+        return fechaVacunacion;
+    }
+
+    public List<Propietario> MayorNumeroVisitas() {
+        MayorNumeroVisitas();
+        for (Propietario propietario : listPropietarios) {
+            if(propietario.getPuntajeFidelidad())
+        }
+    }
 
 
     @Override

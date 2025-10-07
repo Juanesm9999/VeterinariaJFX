@@ -4,8 +4,8 @@ public class Reptil extends Mascota{
     private Habitat habitat;
     private String temperaturaOptima;
     private NivelPeligrosidad nivelPeligrosidad;
-    public Reptil(String nombre,String id, String raza, Double peso,Integer edadEnMeses,Habitat HAbitat,String temperaturaOptima,NivelPeligrosidad nivelPeligrosidad){
-        super(nombre,id,raza,peso,edadEnMeses);
+    public Reptil(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie, Habitat HAbitat,String temperaturaOptima,NivelPeligrosidad nivelPeligrosidad){
+        super(nombre,id,raza,peso,edadEnMeses,especie);
         this.habitat = habitat;
         this.temperaturaOptima = temperaturaOptima;
         this.nivelPeligrosidad = nivelPeligrosidad;

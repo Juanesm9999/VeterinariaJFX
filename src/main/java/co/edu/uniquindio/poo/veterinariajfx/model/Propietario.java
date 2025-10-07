@@ -1,44 +1,60 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public class Propietario {
-    public class Propietario {
-        // Atributos Propios
-        private String nombre;
-        private String id;
-        private Double PuntajeFidelidad;
+    // Atributos Propios
+    private String nombre;
+    private String id;
+    private String direccion;
+    private Double PuntajeFidelidad;
 
-        // Atributos de Relaciones
-        private Mascota[] listMascotas;
 
-        public Propietario(String nombre, String id){
-            this.nombre = nombre;
-            this.id = id;
-            listMascotas = new Mascota[10];
-        }
+    // Atributos de Relaciones
+    private Mascota[] listMascotas;
 
-        public String getNombre() {
-            return nombre;
-        }
+    public Propietario(String nombre, String id, String direccion, Double PuntajeFidelidad) {
+        this.nombre = nombre;
+        this.id = id;
+        listMascotas = new Mascota[10];
+    }
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    public String getNombre() {
+        return nombre;
+    }
 
-        public String getId() {
-            return id;
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-        public void setId(String id) {
-            this.id = id;
-        }
+    public String getId() {
+        return id;
+    }
 
-        public Mascota[] getListMascotas() {
-            return listMascotas;
-        }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        public void setListMascotas(Mascota[] listMascotas) {
-            this.listMascotas = listMascotas;
-        }
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Double getPuntajeFidelidad() {
+        return PuntajeFidelidad;
+    }
+
+    public void setPuntajeFidelidad(Double puntajeFidelidad) {
+        PuntajeFidelidad = puntajeFidelidad;
+    }
+
+    public Mascota[] getListMascotas() {
+        return listMascotas;
+    }
+
+    public void setListMascotas(Mascota[] listMascotas) {
+        this.listMascotas = listMascotas;
     }
 
 }

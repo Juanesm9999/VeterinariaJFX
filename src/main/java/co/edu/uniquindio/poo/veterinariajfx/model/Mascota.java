@@ -7,17 +7,19 @@ public abstract class Mascota {
         protected String raza;
         protected Double peso;
         protected Integer edadEnMeses;
+        protected String especie;
 
 
         // Atributos de Relaciones
         private Propietario thePropietario;
 
-        public Mascota(String nombre, String id, String raza, Double peso, Integer edadEnMeses) {
+        public Mascota(String nombre, String id, String raza, Double peso, Integer edadEnMeses,String especie) {
             this.nombre = nombre;
             this.id = id;
             this.raza = raza;
             this.peso = peso;
             this.edadEnMeses = edadEnMeses;
+            this.especie = especie;
         }
 
         public String getNombre() {
@@ -60,25 +62,43 @@ public abstract class Mascota {
             this.edadEnMeses = edadEnMeses;
         }
 
-        public Propietario getThePropietario() {
-                return thePropietario;
-            }
+        public String getEspecie() {
+            return especie;
+        }
 
-            public void setThePropietario(Propietario thePropietario) {
+        public void setEspecie(String especie) {
+            this.especie = especie;
+        }
+
+        public Propietario getThePropietario() {
+                    return thePropietario;
+        }
+
+        public void setThePropietario(Propietario thePropietario) {
                 this.thePropietario = thePropietario;
         }
         public String CategoriaDeEdad(Integer edadEnMeses) {
             String categoria = "";
             if(edadEnMeses>0 && edadEnMeses<12){
                 categoria = "Su mascota es joven";
-            if (edadEnMeses>=13 && edadEnMeses<=84){
+            }
+
+            if (edadEnMeses >= 13 && edadEnMeses <= 84) {
                 categoria = "Su mascota es adulto";
-            if(edadEnMeses>84{
+            }
+
+            if(edadEnMeses>84){
                 categoria = "Su mascota es senior";
             }
-            }
-            }
+
+
             return categoria;
+        }
+
+        public Double EstimarDosisMedicamento(double peso){
+            Double MiligramosPorKilo =
+            Double dosisMedicamento = ;
+            return dosisMedicamento;
         }
 
 }

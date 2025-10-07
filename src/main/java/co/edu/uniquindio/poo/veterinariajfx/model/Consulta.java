@@ -9,15 +9,16 @@ public class Consulta {
     private List<Mascota> listMascotas;
     private TipoConsulta tipoConsulta;
     private double precioBase;
-    private Double costoTotal;
+    private double costoTotal;
 
-    public Consulta(String id,LocalDate fecha,List<Mascota>listMascotas,TipoConsulta tipoConsulta,Double precioBase,Double costoTotal) {
+    public Consulta(String id,LocalDate fecha,List<Mascota>listMascotas,TipoConsulta tipoConsulta,double precioBase,double costoTotal) {
         this.id = id;
         this.fecha = fecha;
         this.listMascotas = listMascotas;
         this.tipoConsulta = tipoConsulta;
-        this.precioBase = 0;
-        this.costoTotal = calcularCostoTotal();
+        this.precioBase = 10000;
+        this.costoTotal = 0;
+
     }
 
     public String getId() {
@@ -60,14 +61,5 @@ public class Consulta {
         this.precioBase = precioBase;
     }
 
-    public Double getCostoTotal() {
-        return costoTotal;
-    }
 
-    public void setCostoTotal(Double costoTotal) {
-        this.costoTotal = costoTotal;
-    }
-    public Double calcularCostoConsulta(TipoConsulta tipoConsulta ,double precioBase,Integer edadEnMeses,Mascota mascota) {
-       
-        }
 }

@@ -5,8 +5,8 @@ public class Perro extends Mascota{
     private String nivelAdiestramiento;
     private String NecesidadPaseosDiarios;
 
-    public Perro(String nombre,String id, String raza, Double peso,Integer edadEnMeses,Tamanio tamanio,String nivelAdiestramiento,String NecesidadPaseosDiarios) {
-        super(nombre,id,raza,peso,edadEnMeses);
+    public Perro(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,Tamanio tamanio,String nivelAdiestramiento,String NecesidadPaseosDiarios) {
+        super(nombre,id,raza,peso,edadEnMeses,especie);
         this.tamanio = tamanio;
         this.nivelAdiestramiento = nivelAdiestramiento;
         this.NecesidadPaseosDiarios = NecesidadPaseosDiarios;
