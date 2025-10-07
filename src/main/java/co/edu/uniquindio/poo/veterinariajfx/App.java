@@ -11,7 +11,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
 
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import co.edu.uniquindio.poo.veterinariajfx.viewController.PrimaryViewController;
-import co.edu.uniquindio.poo.veterinariajfx.viewController.ClienteViewController;
+import co.edu.uniquindio.poo.veterinariajfx.viewController.MascotaViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,7 +31,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Gestion de Clientes");
+        this.primaryStage.setTitle("Gestion de Mascotas");
         openViewPrincipal();
     }
 
@@ -61,13 +61,13 @@ public class App extends Application {
     }
 
 
-    public void openCrudCliente() {
+    public void openCrudMascota() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("crudCliente.fxml"));
+            loader.setLocation(App.class.getResource("crudMascota.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
-            ClienteViewController clienteViewController = loader.getController();
-            clienteViewController.setApp(this);
+            MascotaViewController mascotaViewController= loader.getController();
+            mascotaViewController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -82,7 +82,7 @@ public class App extends Application {
 
     //servicios
     public void inicializarData(){
-        Mascota mascota = new Mascota();
+        Mascota mascota = new Mascota("Rocky", "123", "Chihuahua", 10.0, 5, "Perro");
         veterinaria.agregarMascota(mascota);
     }
 }

@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.MascotaController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,6 +35,9 @@ public class MascotaViewController {
     @FXML
     private TextField txtNombre;
 
+    @FXML
+    private TextField txtEspecie;
+
 
     @FXML
     private Button btnLimpiar;
@@ -54,10 +58,23 @@ public class MascotaViewController {
     @FXML
     private TableColumn<Mascota, String> tbcNombre;
 
+    @FXML
+    private TableColumn<Mascota, String> tbcPeso;
+
+    @FXML
+    private TableColumn<Mascota, String> tbcEdadEnMeses;
+
+    @FXML
+    private TableColumn<Mascota, String> tbcEspecie;
 
     @FXML
     private TextField txtRaza;
 
+    @FXML
+    private TextField txtPeso;
+
+    @FXML
+    private TextField txtEdadEnMeses;
 
     @FXML
     private TableColumn<Mascota, String> tbcRaza;
@@ -102,7 +119,7 @@ public class MascotaViewController {
 
     @FXML
     void initialize() {
-        this.app=app;
+        this.app = app;
         mascotaController = new MascotaController(app.veterinaria);
         initView();
     }
@@ -114,7 +131,7 @@ public class MascotaViewController {
 
 
         // Obtiene la lista
-        obtenerClientes();
+        obtenerMascota();
 
 
         // Limpiar la tabla
@@ -134,88 +151,93 @@ public class MascotaViewController {
         tbcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         tbcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
+        tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
+        tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
+
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 
-    private void obtenerClientes() {
-        listMascotas.addAll(MascotaController.());
+    private void obtenerMascota() {
+        listMascotas.addAll(mascotaController.obtenerListaMascotas());
     }
 
 
     private void listenerSelection() {
-        tblListCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            selectedCliente = newSelection;
-            mostrarInformacionCliente(selectedCliente);
+        tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            selectedMascota = newSelection;
+            mostrarInformacionMascota(selectedMascota);
         });
     }
 
 
-    private void mostrarInformacionCliente(Cliente cliente) {
-        if (cliente != null) {
-            txtCedula.setText(cliente.getCedula());
-            txtNombre.setText(cliente.getNombre());
-            txtApellido.setText(cliente.getApellido());
+    private void mostrarInformacionMascota(Mascota mascota) {
+        if (mascota != null) {
+            txtId.setText(mascota.getId());
+            txtNombre.setText(mascota.getNombre());
+            txtRaza.setText(mascota.getRaza());
         }
     }
 
 
-    private void agregarCliente() {
-        Cliente cliente = buildCliente();
-        if (clienteController.crearCliente(cliente)) {
-            listClientes.add(cliente);
-            limpiarCamposCliente();
+    private void agregarMascota() {
+        Mascota mascota = buildMascota();
+        if (mascotaController.crearMascota(mascota)) {
+            listMascotas.add(mascota);
+            limpiarCamposMascota();
         }
     }
 
 
-    private Cliente buildCliente() {
-        Cliente cliente = new Cliente(txtCedula.getText(), txtNombre.getText(), txtApellido.getText());
-        return cliente;
+    private Mascota buildMascota() {
+        Mascota mascota = new Mascota(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText());
+        return mascota;
     }
 
 
-    private void eliminarCliente() {
-        if (clienteController.eliminarCliente(txtCedula.getText())) {
-            listClientes.remove(selectedCliente);
-            limpiarCamposCliente();
+    private void eliminarMascota() {
+        if (mascotaController.eliminarMascota(txtId.getText())) {
+            listMascotas.remove(selectedMascota);
+            limpiarCamposMascota();
             limpiarSeleccion();
         }
     }
 
 
-    private void actualizarCliente() {
+    private void actualizarMascota() {
 
 
-        if (selectedCliente != null &&
-                clienteController.actualizarCliente(selectedCliente.getCedula(), buildCliente())) {
+        if (selectedMascota != null &&
+                mascotaController.actualizarMascota(selectedMascota.getId(), buildMascota())) {
 
 
-            int index = listClientes.indexOf(selectedCliente);
+            int index = listMascotas.indexOf(selectedMascota);
             if (index >= 0) {
-                listClientes.set(index, buildCliente());
+                listMascotas.set(index, buildMascota());
             }
 
 
-            tblListCliente.refresh();
+            tblListMascota.refresh();
             limpiarSeleccion();
-            limpiarCamposCliente();
+            limpiarCamposMascota();
         }
     }
 
 
     private void limpiarSeleccion() {
-        tblListCliente.getSelectionModel().clearSelection();
-        limpiarCamposCliente();
+        tblListMascota.getSelectionModel().clearSelection();
+        limpiarCamposMascota();
     }
 
 
-    private void limpiarCamposCliente() {
-        txtCedula.clear();
+    private void limpiarCamposMascota() {
+        txtId.clear();
         txtNombre.clear();
-        txtApellido.clear();
+        txtRaza.clear();
     }
 
 
     public void setApp(App app) {
         this.app = app;
+    }
+}

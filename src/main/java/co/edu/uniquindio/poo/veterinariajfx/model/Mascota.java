@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
-public abstract class Mascota {
+public class Mascota {
         // Atributos Propios
         protected String nombre;
         protected String id;

@@ -42,7 +42,7 @@ public class Veterinaria {
     }
 
 
-    public boolean actualizarCliente(String id, Mascota actualizado) {
+    public boolean actualizarMascota(String id, Mascota actualizado) {
         boolean centinela = false;
         for (Mascota mascota : listMascotas) {
             if (mascota.getId().equals(id)) {
@@ -56,6 +56,21 @@ public class Veterinaria {
         return centinela;
     }
 
+    public List<Consulta> getListConsultas() {
+        return listConsultas;
+    }
+
+    public void setListConsultas(List<Consulta> listConsultas) {
+        this.listConsultas = listConsultas;
+    }
+
+    public List<Mascota> getListMascotas() {
+        return listMascotas;
+    }
+
+    public void setListMascotas(List<Mascota> listMascotas) {
+        this.listMascotas = listMascotas;
+    }
 
     public boolean verificarMascota(String id) {
         boolean centinela = false;
@@ -122,6 +137,13 @@ public class Veterinaria {
         }
     }
 
+    public List<Propietario> getListPropietarios() {
+        return listPropietarios;
+    }
+
+    public void setListPropietarios(List<Propietario> listPropietarios) {
+        this.listPropietarios = listPropietarios;
+    }
 
     @Override
     public String toString() {

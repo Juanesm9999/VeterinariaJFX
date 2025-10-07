@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class MascotaController {
@@ -21,18 +22,18 @@ public class MascotaController {
     }
 
 
-    public LinkedList<Mascota> obtenerListaMascotas() {
-        return veterinaria.getMascota();
+    public List<Mascota> obtenerListaMascotas() {
+        return veterinaria.getListMascotas();
     }
 
 
-    public boolean eliminarCliente(String cedula) {
-        return empresa.eliminarCliente(cedula);
+    public boolean eliminarMascota(String id) {
+        return veterinaria.eliminarMascota(id);
     }
 
 
-    public boolean actualizarCliente(String cedula, Cliente cliente) {
-        return empresa.actualizarCliente(cedula, cliente);
+    public boolean actualizarMascota(String id, Mascota mascota) {
+        return veterinaria.actualizarMascota(id, mascota);
     }
 
 

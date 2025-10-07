@@ -24,8 +24,8 @@ public class PrimaryViewController {
 
 
     @FXML
-    void onOpenCrudCliente() {
-        app.openCrudCliente();
+    void onOpenCrudMascota() {
+        app.openCrudMascota();
     }
 
 
