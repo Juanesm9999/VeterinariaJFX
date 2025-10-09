@@ -106,11 +106,21 @@ public abstract class Mascota {
             return categoria;
         }
 
-        public Double EstimarDosisMedicamento(double peso){
-            Double MiligramosPorKilo =
-            Double dosisMedicamento = ;
-            return dosisMedicamento;
+    public String sugerirProximaVacunacion(String especie) {
+        String fechaVacunacion = "";
+
+        if (especie.equalsIgnoreCase("Perro") || especie.equalsIgnoreCase("Gato")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 12 meses";
+        } else if (especie.equalsIgnoreCase("Ave")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 8 meses";
+        } else if (especie.equalsIgnoreCase("Reptil")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 18 meses";
+        } else {
+            fechaVacunacion = "Especie no reconocida para vacunación";
         }
+
+        return fechaVacunacion;
+    }
     public abstract double CalcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie);
 }
 

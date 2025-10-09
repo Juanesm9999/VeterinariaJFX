@@ -19,54 +19,6 @@ public class Veterinaria {
         this.listConsultas = new ArrayList<>();
     }
 
-    //--------------------------------- CRUD Ave -------------------------------------
-
-    public boolean agregarAve(Ave ave) {
-        boolean centinela = false;
-        if (!verificarAve(ave.getId())) {
-            listMascotas.add(ave);
-            centinela = true;
-        }
-        return centinela;
-    }
-
-    public boolean eliminarAve(String id) {
-        boolean centinela = false;
-        for (Mascota ave : listMascotas) {
-            if (ave.getId().equals(id)) {
-                listMascotas.remove(ave);
-                centinela = true;
-                break;
-            }
-        }
-        return centinela;
-    }
-
-
-    public boolean actualizarAve(String id, Ave actualizado) {
-        boolean centinela = false;
-        for (Mascota ave : listMascotas) {
-            if (ave.getId().equals(id)) {
-                ave.setId(actualizado.getId());
-                ave.setNombre(actualizado.getNombre());
-                ave.setRaza(actualizado.getRaza());
-                centinela = true;
-                break;
-            }
-        }
-        return centinela;
-    }
-
-    public boolean verificarAve(String id) {
-        boolean centinela = false;
-        for (Mascota mascota : listMascotas) {
-            if (mascota.getId().equals(id)) {
-                centinela = true;
-            }
-        }
-        return centinela;
-    }
-
     // -------------------------------- CRUD Mascota ---------------------------------
 
     public boolean agregarMascota(Mascota mascota) {
@@ -148,28 +100,36 @@ public class Veterinaria {
         this.nombre = nombre;
     }
 
-
-    public String FechaVacunacion() {
-        String fechaVacunacion = "";
-        for (Mascota mascota : listMascotas) {
-            if(mascota.getEspecie().equalsIgnoreCase("Perro") || mascota.getEspecie().equalsIgnoreCase("Gato")){
-                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 12 meses";
-            }
-            if(mascota.getEspecie().equalsIgnoreCase("Ave")){
-                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 8 meses";
-            }
-            if(mascota.getEspecie().equalsIgnoreCase("Reptil")){
-                fechaVacunacion = "Se le sugiere vacunar a su mascota cada 18 meses";
-            }
-
+    public double estimarDosis(double pesoKg, double miligramosPorKilo) {
+        if (pesoKg <= 0 || miligramosPorKilo <= 0) {
+            throw new IllegalArgumentException("El peso y los miligramos por kilo deben ser mayores a cero");
         }
-        return fechaVacunacion;
+        return pesoKg * miligramosPorKilo;
     }
+
 
     public List<Propietario> MayorNumeroVisitas() {
         MayorNumeroVisitas();
         for (Propietario propietario : listPropietarios) {
             if(propietario.getPuntajeFidelidad())
+        }
+    }
+    public int ClasificarUrgencia(TipoConsulta tipoConsulta) {
+        int prioridad = 0;
+        switch (tipoConsulta) {
+            case TipoConsulta.URGENCIA:
+                return prioridad = 1;
+
+            case TipoConsulta.CONSULTA:
+                return prioridad = 2;
+
+            case TipoConsulta.VACUNACION:
+                return prioridad = 3;
+            case TipoConsulta.CONTROL_RUTINARIO:
+                return prioridad = 4;
+
+            default:
+                return prioridad = 5;
         }
     }
 
