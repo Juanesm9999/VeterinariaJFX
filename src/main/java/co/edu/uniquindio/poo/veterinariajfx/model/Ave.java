@@ -4,6 +4,7 @@ public class Ave extends Mascota{
     private String TIpoDePlumaje;
     private Boolean CapacidadDeVuelo;
     private String CantidadDeImitaciones;
+
     public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
         super(nombre,id,raza,peso,edadEnMeses,especie);
         this.TIpoDePlumaje = TipoDePlumaje;
@@ -34,7 +35,7 @@ public class Ave extends Mascota{
     public void setCantidadDeImitaciones(String cantidadDeImitaciones) {
         CantidadDeImitaciones = cantidadDeImitaciones;
     }
-    public double CalcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
+    public double calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
         precioBase = precioBase * 1.25;
 
         if(getEdadEnMeses()>84){
@@ -52,5 +53,6 @@ public class Ave extends Mascota{
 
         return costoTotal;
     }
+
 
 }
