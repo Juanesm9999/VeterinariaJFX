@@ -19,6 +19,54 @@ public class Veterinaria {
         this.listConsultas = new ArrayList<>();
     }
 
+    //--------------------------------- CRUD Ave -------------------------------------
+
+    public boolean agregarAve(Ave ave) {
+        boolean centinela = false;
+        if (!verificarAve(ave.getId())) {
+            listMascotas.add(ave);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarAve(String id) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                listMascotas.remove(ave);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarAve(String id, Ave actualizado) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                ave.setId(actualizado.getId());
+                ave.setNombre(actualizado.getNombre());
+                ave.setRaza(actualizado.getRaza());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean verificarAve(String id) {
+        boolean centinela = false;
+        for (Mascota mascota : listMascotas) {
+            if (mascota.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
     // -------------------------------- CRUD Mascota ---------------------------------
 
     public boolean agregarMascota(Mascota mascota) {
@@ -122,23 +170,6 @@ public class Veterinaria {
         MayorNumeroVisitas();
         for (Propietario propietario : listPropietarios) {
             if(propietario.getPuntajeFidelidad())
-        }
-    }
-    public int ClasificarUrgencia(TipoConsulta tipoConsulta) {
-        switch (tipoConsulta) {
-            case TipoConsulta.URGENCIA:
-                return 1;
-
-            case TipoConsulta.CONSULTA:
-                return 2;
-
-            case TipoConsulta.VACUNACION:
-                return 3;
-            case TipoConsulta.CONTROL_RUTINARIO:
-                return 4;
-
-            default:
-                return 0;
         }
     }
 

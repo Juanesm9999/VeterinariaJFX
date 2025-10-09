@@ -1,10 +1,9 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
 import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
+import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
-
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -22,17 +21,17 @@ public class AveController {
     }
 
 
-    public List<Ave> obtenerListaAves() {
+    public List<Mascota> obtenerListaMascotas() {
         return veterinaria.getListMascotas();
     }
 
 
-    public boolean eliminarCliente(String cedula) {
-        return veterinaria.eliminarAve(cedula);
+    public boolean eliminarAve(String id) {
+        return veterinaria.eliminarAve(id);
     }
 
 
-    public boolean actualizarCliente(String id, Ave ave) {
+    public boolean actualizarAve(String id, Ave ave) {
         return veterinaria.actualizarAve(id, ave);
     }
 

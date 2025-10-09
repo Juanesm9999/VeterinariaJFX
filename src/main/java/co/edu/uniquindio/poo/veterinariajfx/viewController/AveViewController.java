@@ -68,6 +68,15 @@ public class AveViewController {
     private TableColumn<Ave, String> tbcEspecie;
 
     @FXML
+    private TableColumn<Ave, String> tbcTipoPlumaje;
+
+    @FXML
+    private TableColumn<Ave, String> tbcIsVueloCorto;
+
+    @FXML
+    private TableColumn<Ave, String> tbcCantidadDeImitaciones;
+
+    @FXML
     private TextField txtRaza;
 
     @FXML
@@ -75,6 +84,15 @@ public class AveViewController {
 
     @FXML
     private TextField txtEdadEnMeses;
+
+    @FXML
+    private TextField txtTipoPlumaje;
+
+    @FXML
+    private TextField txtIsVueloCorto;
+
+    @FXML
+    private TextField txtCantidadDeImitaciones;
 
     @FXML
     private TableColumn<Ave, String> tbcRaza;
@@ -153,14 +171,17 @@ public class AveViewController {
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
-        tbcTipo
+        tbcEspecie.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEspecie()));
+        tbcTipoPlumaje.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTIpoDePlumaje()));
+        tbcIsVueloCorto.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getIsVueloCorto()));
+        tbcCantidadDeImitaciones.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadDeImitaciones()));
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 
     private void obtenerAve() {
-        listMascotas.addAll(aveController.obtenerListaAves());
+        listMascotas.addAll(aveController.obtenerListaMascotas());
     }
 
 
@@ -191,7 +212,7 @@ public class AveViewController {
 
 
     private Ave buildAve() {
-        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), );
+        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoPlumaje.getText(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
         return ave;
     }
 

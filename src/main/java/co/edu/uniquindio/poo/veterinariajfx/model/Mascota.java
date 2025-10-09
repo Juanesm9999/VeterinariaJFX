@@ -111,7 +111,6 @@ public abstract class Mascota {
             Double dosisMedicamento = ;
             return dosisMedicamento;
         }
-
-    public abstract double calcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie);
+    public abstract double CalcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie);
 }
 

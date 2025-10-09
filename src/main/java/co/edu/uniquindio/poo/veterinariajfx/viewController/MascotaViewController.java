@@ -190,7 +190,12 @@ public class MascotaViewController {
 
 
     private Mascota buildMascota() {
-        Mascota mascota = new Mascota(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText());
+        Mascota mascota = new Mascota(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText()) {
+            @Override
+            public double CalcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie) {
+                return 0;
+            }
+        };
         return mascota;
     }
 
