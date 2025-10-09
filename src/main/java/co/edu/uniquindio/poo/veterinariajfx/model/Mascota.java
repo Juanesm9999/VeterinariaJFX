@@ -1,6 +1,8 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
-public class Mascota {
+import java.util.List;
+
+public abstract class Mascota {
         // Atributos Propios
         protected String nombre;
         protected String id;
@@ -12,6 +14,7 @@ public class Mascota {
 
         // Atributos de Relaciones
         private Propietario thePropietario;
+        private List<Consulta> listConsultas;
 
         public Mascota(String nombre, String id, String raza, Double peso, Integer edadEnMeses,String especie) {
             this.nombre = nombre;
@@ -74,7 +77,15 @@ public class Mascota {
                     return thePropietario;
         }
 
-        public void setThePropietario(Propietario thePropietario) {
+        public List<Consulta> getlistConsultas() {
+            return listConsultas;
+        }
+
+        public void setlistConsultas(List<Consulta> listConsultas) {
+            listConsultas = listConsultas;
+        }
+
+    public void setThePropietario(Propietario thePropietario) {
                 this.thePropietario = thePropietario;
         }
         public String CategoriaDeEdad(Integer edadEnMeses) {
@@ -100,6 +111,7 @@ public class Mascota {
             Double dosisMedicamento = ;
             return dosisMedicamento;
         }
+    public abstract double calcularCostoConsulta();
 
 }
 

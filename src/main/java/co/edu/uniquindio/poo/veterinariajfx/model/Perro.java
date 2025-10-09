@@ -35,4 +35,5 @@ public class Perro extends Mascota{
     public void setNecesidadPaseosDiarios(String necesidadPaseosDiarios) {
         NecesidadPaseosDiarios = necesidadPaseosDiarios;
     }
+
 }

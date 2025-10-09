@@ -34,5 +34,23 @@ public class Ave extends Mascota{
     public void setCantidadDeImitaciones(String cantidadDeImitaciones) {
         CantidadDeImitaciones = cantidadDeImitaciones;
     }
+    public double CalcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
+        precioBase = precioBase * 1.25;
+
+        if(getEdadEnMeses()>84){
+            costoTotal = precioBase * 1.5;
+        }
+        for(int i=0;i < getlistConsultas().size();i++){
+            Consulta consulta = getlistConsultas().get(i);
+            if(consulta.getId().equals(id)){
+                if(consulta.getTipoConsulta().equals(tipoConsulta)){
+                    costoTotal = precioBase * 1.75;
+                }
+            }
+
+        }
+
+        return costoTotal;
+    }
 
 }

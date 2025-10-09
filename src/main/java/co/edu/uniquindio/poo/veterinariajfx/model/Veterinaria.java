@@ -16,6 +16,7 @@ public class Veterinaria {
         this.nit = nit;
         this.listMascotas = new ArrayList<>();
         this.listPropietarios = new ArrayList<>();
+        this.listConsultas = new ArrayList<>();
     }
 
     // -------------------------------- CRUD Mascota ---------------------------------
@@ -98,8 +99,10 @@ public class Veterinaria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public double calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie) {
-        for (Mascota mascota : listMascotas) {
+
+    public abstradouble calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie) {
+        for (int i = 0; i < listMascotas.size(); i++) {
+
             if (mascota.getEspecie().equalsIgnoreCase("Ave") || mascota.getEspecie().equalsIgnoreCase("Reptil")) {
                 costoTotal = precioBase * 1.50;
             }

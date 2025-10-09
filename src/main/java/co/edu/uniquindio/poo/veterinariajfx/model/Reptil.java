@@ -34,4 +34,34 @@ public class Reptil extends Mascota{
     public void setNivelPeligrosidad(NivelPeligrosidad nivelPeligrosidad) {
         this.nivelPeligrosidad = nivelPeligrosidad;
     }
+    public double CalcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
+        precioBase = precioBase * 1.25;
+
+        if(getEdadEnMeses()>84){
+            costoTotal = precioBase * 1.5;
+        }
+        for(int i=0;i < getlistConsultas().size();i++){
+            Consulta consulta = getlistConsultas().get(i);
+            if(consulta.getId().equals(id)){
+                if(consulta.getTipoConsulta().equals(tipoConsulta)){
+                    costoTotal = precioBase * 1.75;
+                }
+            }
+
+        }
+
+        return costoTotal;
+    }
+    public int ClasificarUrgencia(TipoConsulta tipoConsulta){
+        switch (tipoConsulta){
+            case 1:
+
+
+
+                return 1;
+            case 2:
+                return 2;
+            case 3:
+        }
+    }
 }
