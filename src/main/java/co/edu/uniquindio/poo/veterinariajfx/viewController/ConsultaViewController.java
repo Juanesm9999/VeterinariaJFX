@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -165,17 +166,27 @@ public class ConsultaViewController {
     }
 
 
-    private void mostrarInformacionConsulta(Consulta consulta) {
+    /*private void mostrarInformacionConsulta(Consulta consulta) {
         if (consulta != null) {
             txtId.setText(consulta.getId());
-            txtTipoConsulta.setText(consulta.getTipoConsulta());
+            txtTipoConsulta.set(consulta.getTipoConsulta());
             txtPrecioBase.setText(consulta.getPrecioBase());
             txtCostoTotal.setText(consulta.getCostoTotal());
             txtFecha.setText(consulta.getFecha());
 
         }
     }
+*/
 
+    private void mostrarInformacionConsulta(Consulta consulta) {
+        if (consulta != null) {
+            txtId.setText(consulta.getId());
+            txtTipoConsulta.setText(consulta.getTipoConsulta().toString());
+            txtPrecioBase.setText(String.valueOf(consulta.getPrecioBase()));
+            txtCostoTotal.setText(String.valueOf(consulta.getCostoTotal()));
+            txtFecha.setText(consulta.getFecha().toString());
+        }
+    }
 
     private void agregarConsulta() {
         Consulta consulta = buildConsulta();
@@ -186,8 +197,8 @@ public class ConsultaViewController {
     }
 
 
-    private Consulta buildConsulta() {
-            Consulta consulta = new Consulta(txtId.getText(), LocalDate.now(), );
+   private Consulta buildConsulta() {
+            Consulta consulta = new Consulta(txtId.getText(), LocalDate.now(), List.of(), txtTipoConsulta.getText(), Double.parseDouble(txtPrecioBase.getText()), Double.parseDouble(txtCostoTotal.getText()));
         return consulta;
     }
 

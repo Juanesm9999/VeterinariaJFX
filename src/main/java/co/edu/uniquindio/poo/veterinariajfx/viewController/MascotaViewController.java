@@ -90,6 +90,7 @@ public class MascotaViewController {
 
     @FXML
     private TextField txtId;
+
     private App app;
 
 
@@ -153,6 +154,7 @@ public class MascotaViewController {
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
+        tbcEspecie.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEspecie()));
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
@@ -176,6 +178,9 @@ public class MascotaViewController {
             txtId.setText(mascota.getId());
             txtNombre.setText(mascota.getNombre());
             txtRaza.setText(mascota.getRaza());
+            txtEspecie.setText(mascota.getEspecie());
+            txtEdadEnMeses.setText(String.valueOf(mascota.getEdadEnMeses()));
+            txtPeso.setText(String.valueOf(mascota.getPeso()));
         }
     }
 
@@ -239,6 +244,9 @@ public class MascotaViewController {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();
+        txtEspecie.clear();
+        txtPeso.clear();
+        txtEdadEnMeses.clear();
     }
 
 

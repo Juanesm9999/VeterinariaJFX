@@ -35,6 +35,8 @@ public class Gato extends Mascota{
     public void setNivelIndependencia(String nivelIndependencia) {
         NivelIndependencia = nivelIndependencia;
     }
+
+    @Override
     public double CalcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
         if(getEdadEnMeses()>84){
             costoTotal = precioBase * 1.5;

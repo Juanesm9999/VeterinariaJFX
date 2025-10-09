@@ -35,7 +35,8 @@ public class Perro extends Mascota{
     public void setNecesidadPaseosDiarios(String necesidadPaseosDiarios) {
         NecesidadPaseosDiarios = necesidadPaseosDiarios;
     }
-    public double calcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
+    @Override
+    public double CalcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
         if(getEdadEnMeses()>84){
             costoTotal = precioBase * 1.5;
         }

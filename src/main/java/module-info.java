@@ -2,7 +2,6 @@ module co.edu.uniquindio.poo.veterinariajfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires co.edu.uniquindio.poo.veterinariajfx;
 
 
     opens co.edu.uniquindio.poo.veterinariajfx to javafx.fxml;
@@ -15,4 +14,5 @@ module co.edu.uniquindio.poo.veterinariajfx {
 
     exports co.edu.uniquindio.poo.veterinariajfx.controller;
     opens co.edu.uniquindio.poo.veterinariajfx.controller to javafx.fxml;
+
 }
