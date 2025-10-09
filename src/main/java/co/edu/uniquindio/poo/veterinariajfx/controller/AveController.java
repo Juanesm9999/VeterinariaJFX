@@ -16,7 +16,7 @@ public class AveController {
     }
 
 
-    public boolean crearAve(Ave ave) {
+    public boolean crearAve(Mascota ave) {
         return veterinaria.agregarAve(ave);
     }
 
