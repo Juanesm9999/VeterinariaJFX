@@ -125,20 +125,21 @@ public class Veterinaria {
         }
     }
     public int ClasificarUrgencia(TipoConsulta tipoConsulta) {
+        int prioridad = 0;
         switch (tipoConsulta) {
             case TipoConsulta.URGENCIA:
-                return 1;
+                return prioridad = 1;
 
             case TipoConsulta.CONSULTA:
-                return 2;
+                return prioridad = 2;
 
             case TipoConsulta.VACUNACION:
-                return 3;
+                return prioridad = 3;
             case TipoConsulta.CONTROL_RUTINARIO:
-                return 4;
+                return prioridad = 4;
 
             default:
-                return 0;
+                return prioridad 0;
         }
     }
 
