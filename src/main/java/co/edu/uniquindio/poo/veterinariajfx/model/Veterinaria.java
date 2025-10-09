@@ -192,7 +192,7 @@ public class Veterinaria {
     }
 
 
-    public boolean actualizarGato(String id, Mascota actualizado) {
+    public boolean actualizarGato(String id, Gato actualizado) {
         boolean centinela = false;
         for (Mascota gato : listMascotas) {
             if (gato.getId().equals(id)) {

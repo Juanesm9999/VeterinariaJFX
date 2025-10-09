@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
+import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
 import java.util.List;
@@ -15,17 +16,17 @@ public class PerroController {
 
 
     public boolean crearPerro(Mascota perro) {
-        return veterinaria.agregarMascota(perro);
+        return veterinaria.agregarPerro(perro);
     }
 
 
-    public List<Mascota> obtenerListaMascotas() {
+    public List<Mascota> obtenerListPerros() {
         return veterinaria.getListMascotas();
     }
 
 
-    public boolean eliminarMascota(String id) {
-        return veterinaria.eliminarMascota(id);
+    public boolean eliminarPerro(String id) {
+        return veterinaria.eliminarPerro(id);
     }
 
 

@@ -33,14 +33,26 @@ public class PerroViewController {
 
 
     @FXML
-    private TextField txtNombre;
+    private TextField txtnombre;
 
     @FXML
-    private TextField txt;
+    private TextField txtid;
 
 
     @FXML
-    private TextField txtEspecie;
+    private TextField txtraza;
+    @FXML
+    private TextField txtpeso;
+    @FXML
+    private TextField txtedadEnMeses;
+    @FXML
+    private TextField txtespecie;
+    @FXML
+    private TextField txttamanio;
+    @FXML
+    private TextField txtivelAdiestramiento;
+    @FXML
+    private TextField txtNecesidadPaseosDiarios;
 
 
     @FXML
@@ -48,7 +60,7 @@ public class PerroViewController {
 
 
     @FXML
-    private TableView<Mascota> tblListMascota;
+    private TableView<Perro> tblListPerro;
 
 
     @FXML
@@ -56,50 +68,42 @@ public class PerroViewController {
 
 
     @FXML
-    private Button btnActualizarCliente;
+    private Button btnActualizarPerro;
 
 
     @FXML
-    private TableColumn<Mascota, String> tbcNombre;
+    private TableColumn<Perro, String> tbcnombre;
+    @FXML
+    private TableColumn<Perro, String> tbcid;
+    @FXML
+    private TableColumn<Perro, String> tbcraza;
 
     @FXML
-    private TableColumn<Mascota, String> tbcPeso;
+    private TableColumn<Perro, String> tbcPeso;
+    
+    @FXML
+    private TableColumn<Perro, String> tbcEdadEnMeses;
 
     @FXML
-    private TableColumn<Mascota, String> tbcEdadEnMeses;
+    private TableColumn<Perro, String> tbcEspecie;
 
-    @FXML
-    private TableColumn<Mascota, String> tbcEspecie;
 
-    @FXML
-    private TextField txtRaza;
-
-    @FXML
-    private TextField txtPeso;
-
-    @FXML
-    private TextField txtEdadEnMeses;
-
-    @FXML
-    private TableColumn<Mascota, String> tbcRaza;
 
 
     @FXML
-    private Button btbAgregarMascota;
+    private TableColumn<Perro, String> tbcRaza;
 
 
     @FXML
-    private TableColumn<Mascota, String> tbcId;
+    private Button btbAgregarPerro;
 
-
-    @FXML
-    private TextField txtId;
+    
     private App app;
 
 
     @FXML
-    void onAgregarMascota() {
-        agregarMascota();
+    void onAgregarPerro() {
+        agregarPerro();
     }
 
 

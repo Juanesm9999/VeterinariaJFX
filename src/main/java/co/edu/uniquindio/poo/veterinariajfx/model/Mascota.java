@@ -73,11 +73,16 @@ public abstract class Mascota {
             this.especie = especie;
         }
 
-        public Propietario getThePropietario() {
-                    return thePropietario;
-        }
 
-        public List<Consulta> getlistConsultas() {
+    public Propietario getThePropietario() {
+        return thePropietario;
+    }
+
+    public void setListConsultas(List<Consulta> listConsultas) {
+        this.listConsultas = listConsultas;
+    }
+
+    public List<Consulta> getlistConsultas() {
             return listConsultas;
         }
 
