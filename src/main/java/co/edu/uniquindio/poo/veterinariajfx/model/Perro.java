@@ -35,5 +35,20 @@ public class Perro extends Mascota{
     public void setNecesidadPaseosDiarios(String necesidadPaseosDiarios) {
         NecesidadPaseosDiarios = necesidadPaseosDiarios;
     }
+    public double calcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
+        if(getEdadEnMeses()>84){
+            costoTotal = precioBase * 1.5;
+        }
+        for(int i=0;i < getlistConsultas().size();i++){
+            Consulta consulta = getlistConsultas().get(i);
+            if(consulta.getId().equals(id)){
+                if(consulta.getTipoConsulta().equals(tipoConsulta)){
+                    costoTotal = precioBase * 1.75;
+                }
+            }
 
+        }
+
+        return costoTotal;
+    }
 }
