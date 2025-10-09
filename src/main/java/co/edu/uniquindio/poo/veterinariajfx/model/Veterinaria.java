@@ -100,7 +100,21 @@ public class Veterinaria {
         this.nombre = nombre;
     }
 
+    public abstradouble calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie) {
+        for (int i = 0; i < listMascotas.size(); i++) {
 
+            if (mascota.getEspecie().equalsIgnoreCase("Ave") || mascota.getEspecie().equalsIgnoreCase("Reptil")) {
+                costoTotal = precioBase * 1.50;
+            }
+            if(mascota.getEdadEnMeses() >84 ) {
+                costoTotal = precioBase + 5000;
+            }
+            if(mascota.getTipoConsulta()= TipoConsulta.URGENCIA){
+                costoTotal= precioBase + 4000;
+            }
+
+        }
+        return costoTotal;
     }
     public String FechaVacunacion() {
         String fechaVacunacion = "";
@@ -126,23 +140,6 @@ public class Veterinaria {
         }
     }
 
-    public int ClasificarUrgencia(TipoConsulta tipoConsulta) {
-        switch (tipoConsulta) {
-            case TipoConsulta.URGENCIA:
-                return 1;
-
-            case TipoConsulta.CONSULTA:
-                return 2;
-
-            case TipoConsulta.VACUNACION:
-                return 3;
-            case TipoConsulta.CONTROL_RUTINARIO:
-                return 4;
-
-            default:
-                return 0;
-        }
-    }
     public List<Propietario> getListPropietarios() {
         return listPropietarios;
     }

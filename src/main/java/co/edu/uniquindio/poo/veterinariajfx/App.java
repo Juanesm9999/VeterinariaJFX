@@ -82,8 +82,8 @@ public class App extends Application {
 
     //servicios
     public void inicializarData(){
-        Mascota mascota = new Mascota("Rocky", "123", "Chihuahua", 10.0, 5, "Perro");
-        veterinaria.agregarMascota(mascota);
+        Ave ave = new Ave("Rocky", "123", "Chihuahua", 10.0, 5, "Perro", "Azul", true, "pocas");
+        veterinaria.agregarAve(ave);
     }
 }
 
