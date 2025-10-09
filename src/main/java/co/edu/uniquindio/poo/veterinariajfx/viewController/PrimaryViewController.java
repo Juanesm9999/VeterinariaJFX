@@ -28,6 +28,10 @@ public class PrimaryViewController {
         app.openCrudMascota();
     }
 
+    @FXML
+    void onOpenCrudAve() {
+        app.openCrudAve();
+
 
     public void setApp(App app) {
         this.app = app;
@@ -40,3 +44,6 @@ public class PrimaryViewController {
 
     }
 }
+
+    public void setApp(App app) {
+    }

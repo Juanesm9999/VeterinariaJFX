@@ -61,6 +61,18 @@ public class Consulta {
         this.precioBase = precioBase;
     }
 
+    public void setPrecioBase(double precioBase) {
+        this.precioBase = precioBase;
+    }
+
+    public String getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(double costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
     public int clasificarUrgencia(TipoConsulta tipoConsulta) {
         switch (tipoConsulta) {
             case URGENCIA:

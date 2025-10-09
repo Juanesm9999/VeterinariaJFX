@@ -1,0 +1,242 @@
+package co.edu.uniquindio.poo.veterinariajfx.viewController;
+
+import co.edu.uniquindio.poo.veterinariajfx.App;
+import co.edu.uniquindio.poo.veterinariajfx.controller.ConsultaController;
+import co.edu.uniquindio.poo.veterinariajfx.model.Consulta;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+
+public class ConsultaViewController {
+    ConsultaController consultaController;
+    ObservableList<Consulta> listConsultas = FXCollections.observableArrayList();
+    Consulta selectedConsulta;
+
+
+    @FXML
+    private ResourceBundle resources;
+
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField txtId;
+
+    @FXML
+    private TextField txtFecha;
+
+    @FXML
+    private TextField txtTipoConsulta;
+
+    @FXML
+    private TextField txtPrecioBase;
+
+    @FXML
+    private TextField txtCostoTotal;
+
+
+
+    @FXML
+    private Button btnLimpiar;
+
+
+    @FXML
+    private TableView<Consulta> tblListConsultas;
+
+
+    @FXML
+    private Button btnEliminar;
+
+
+    @FXML
+    private Button btnActualizarConsulta;
+
+
+    @FXML
+    private TableColumn<Consulta, String> tbcId;
+
+    @FXML
+    private TableColumn<Consulta, String> tbcFecha;
+
+    @FXML
+    private TableColumn<Consulta, String> tbcTipoConsulta;
+
+    @FXML
+    private TableColumn<Consulta, String> tbcPrecioBase;
+
+    @FXML
+    private TableColumn<Consulta, String> tbcCostoTotal;
+
+    @FXML
+    private Button btbAgregarConsulta;
+
+
+    private App app;
+
+
+    @FXML
+    void onAgregarConsulta() {
+        agregarConsulta();
+    }
+
+
+    @FXML
+    void onActualizarConsulta() {
+        actualizarConsulta();
+    }
+
+
+    @FXML
+    void onLimpiar() {
+        limpiarSeleccion();
+    }
+
+
+    @FXML
+    void onEliminar() {
+        eliminarConsulta();
+    }
+
+
+    @FXML
+    void initialize() {
+        this.app = app;
+        consultaController = new ConsultaController(app.veterinaria);
+        initView();
+    }
+
+
+    private void initView() {
+        // Traer los datos del cliente a la tabla
+        initDataBinding();
+
+
+        // Obtiene la lista
+        obtenerConsulta();
+
+
+        // Limpiar la tabla
+        tblListConsultas.getItems().clear();
+
+
+        // Agregar los elementos a la tabla
+        tblListConsultas.setItems(listConsultas);
+
+
+        // Seleccionar elemento de la tabla
+        listenerSelection();
+    }
+
+
+    private void initDataBinding() {
+        tbcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
+        tbcTipoConsulta.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTipoConsulta()));
+        tbcPrecioBase.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPrecioBase()));
+        tbcFecha.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getFecha()));
+        tbcCostoTotal.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getCostoTotal()));
+
+        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
+    }
+
+
+    private void obtenerConsulta() {
+        listConsultas.addAll(consultaController.obtenerListaMascotas());
+    }
+
+
+    private void listenerSelection() {
+        tblListConsultas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            selectedConsulta = newSelection;
+            mostrarInformacionConsulta(selectedConsulta);
+        });
+    }
+
+
+    private void mostrarInformacionConsulta(Consulta consulta) {
+        if (consulta != null) {
+            txtId.setText(consulta.getId());
+            txtTipoConsulta.setText(consulta.getTipoConsulta());
+            txtPrecioBase.setText(consulta.getPrecioBase());
+            txtCostoTotal.setText(consulta.getCostoTotal());
+            txtFecha.setText(consulta.getFecha());
+
+        }
+    }
+
+
+    private void agregarConsulta() {
+        Consulta consulta = buildConsulta();
+        if (consultaController.crearConsulta(consulta)) {
+            listConsultas.add(consulta);
+            limpiarCamposConsulta();
+        }
+    }
+
+
+    private Consulta buildConsulta() {
+            Consulta consulta = new Consulta(txtId.getText(), LocalDate.now(), );
+        return consulta;
+    }
+
+
+    private void eliminarConsulta() {
+        if (consultaController.eliminarConsulta(txtId.getText())) {
+            listConsultas.remove(selectedConsulta);
+            limpiarCamposConsulta();
+            limpiarSeleccion();
+        }
+    }
+
+
+    private void actualizarConsulta() {
+
+
+        if (selectedConsulta != null &&
+                consultaController.actualizarConsulta(selectedConsulta.getId(), buildConsulta())) {
+
+
+            int index = listConsultas.indexOf(selectedConsulta);
+            if (index >= 0) {
+                listConsultas.set(index, buildConsulta());
+            }
+
+
+            tblListConsultas.refresh();
+            limpiarSeleccion();
+            limpiarCamposConsulta();
+        }
+    }
+
+
+    private void limpiarSeleccion() {
+        tblListConsultas.getSelectionModel().clearSelection();
+        limpiarCamposConsulta();
+    }
+
+
+    private void limpiarCamposConsulta() {
+        txtId.clear();
+        txtFecha.clear();
+        txtPrecioBase.clear();
+        txtTipoConsulta.clear();
+        txtCostoTotal.clear();
+    }
+
+
+    public void setApp(App app) {
+        this.app = app;
+    }
+}
