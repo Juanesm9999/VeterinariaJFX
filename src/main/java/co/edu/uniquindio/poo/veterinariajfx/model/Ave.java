@@ -34,7 +34,8 @@ public class Ave extends Mascota{
     public void setCantidadDeImitaciones(String cantidadDeImitaciones) {
         CantidadDeImitaciones = cantidadDeImitaciones;
     }
-    public double CalcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
+    @Override
+    public double calcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
         precioBase = precioBase * 1.25;
 
         if(getEdadEnMeses()>84){
@@ -52,5 +53,6 @@ public class Ave extends Mascota{
 
         return costoTotal;
     }
+    
 
 }
