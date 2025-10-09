@@ -60,7 +60,6 @@
                        </Pane>
                          <Button fx:id="btbAgregarMascota" layoutX="108.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAgregarMascota" text="Agregar Mascota" />
                          <Button fx:id="btnActualizarMascota" layoutX="312.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActualizarMascota" text="Actualizar mascota" />
-                         <TextField fx:id="txtRaza" layoutX="226.0" layoutY="244.0" prefHeight="25.0" prefWidth="194.0" />
                    </children>
                </AnchorPane>
                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="542.0">

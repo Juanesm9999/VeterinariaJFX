@@ -4,7 +4,6 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Consulta;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
 
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -12,7 +11,7 @@ public class ConsultaController {
     Veterinaria veterinaria;
 
 
-    public ConsultaController(Consulta consulta) {
+    public ConsultaController(Veterinaria consulta) {
         this.veterinaria = veterinaria;
     }
 

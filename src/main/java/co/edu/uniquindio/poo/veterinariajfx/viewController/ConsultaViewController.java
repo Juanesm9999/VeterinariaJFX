@@ -154,7 +154,7 @@ public class ConsultaViewController {
 
 
     private void obtenerConsulta() {
-        listConsultas.addAll(consultaController.obtenerListaMascotas());
+        listConsultas.addAll(consultaController.obtenerListaConsultas());
     }
 
 
@@ -164,19 +164,6 @@ public class ConsultaViewController {
             mostrarInformacionConsulta(selectedConsulta);
         });
     }
-
-
-    /*private void mostrarInformacionConsulta(Consulta consulta) {
-        if (consulta != null) {
-            txtId.setText(consulta.getId());
-            txtTipoConsulta.set(consulta.getTipoConsulta());
-            txtPrecioBase.setText(consulta.getPrecioBase());
-            txtCostoTotal.setText(consulta.getCostoTotal());
-            txtFecha.setText(consulta.getFecha());
-
-        }
-    }
-*/
 
     private void mostrarInformacionConsulta(Consulta consulta) {
         if (consulta != null) {
