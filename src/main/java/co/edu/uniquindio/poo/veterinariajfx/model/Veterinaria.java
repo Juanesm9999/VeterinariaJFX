@@ -19,6 +19,106 @@ public class Veterinaria {
         this.listConsultas = new ArrayList<>();
     }
 
+    //--------------------------------- CRUD Consulta --------------------------------
+
+    public boolean agregarConsulta(Consulta consulta) {
+        boolean centinela = false;
+        if (!verificarConsulta(consulta.getId())) {
+            listConsultas.add(consulta);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarConsulta(String id) {
+        boolean centinela = false;
+        for (Consulta consulta: listConsultas) {
+            if (consulta.getId().equals(id)) {
+                listMascotas.remove(consulta);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarConsulta(String id, Consulta actualizado) {
+        boolean centinela = false;
+        for (Consulta consulta : listConsultas) {
+            if (consulta.getId().equals(id)) {
+                consulta.setId(actualizado.getId());
+                consulta.setListMascotas(actualizado.getListMascotas());
+                consulta.setTipoConsulta(actualizado.getTipoConsulta());
+                consulta.setFecha(actualizado.getFecha());
+                consulta.setPrecioBase(actualizado.getPrecioBase());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarConsulta(String id) {
+        boolean centinela = false;
+        for (Consulta consulta : listConsultas) {
+            if (consulta.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    //--------------------------------- CRUD Ave -------------------------------------
+
+    public boolean agregarAve(Ave mascota) {
+        boolean centinela = false;
+        if (!verificarAve(mascota.getId())) {
+            listMascotas.add(mascota);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarAve(String id) {
+        boolean centinela = false;
+        for (Mascota ave: listMascotas) {
+            if (ave.getId().equals(id)) {
+                listMascotas.remove(ave);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarAve(String id, Ave actualizado) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                ave.setId(actualizado.getId());
+                ave.setNombre(actualizado.getNombre());
+                ave.setRaza(actualizado.getRaza());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarAve(String id) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
     // -------------------------------- CRUD Mascota ---------------------------------
 
     public boolean agregarMascota(Mascota mascota) {

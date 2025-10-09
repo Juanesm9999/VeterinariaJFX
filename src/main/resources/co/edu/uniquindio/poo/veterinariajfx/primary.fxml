@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <VBox alignment="CENTER" prefHeight="127.0" prefWidth="209.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.PrimaryViewController">
     <children>
         <Label text="Bienvenidos a Vida Animal" />
