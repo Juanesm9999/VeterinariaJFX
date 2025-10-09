@@ -18,6 +18,56 @@ public class Veterinaria {
         this.listPropietarios = new ArrayList<>();
         this.listConsultas = new ArrayList<>();
     }
+    //--------------------------------- CRUD Propietario --------------------------------
+
+    public boolean agregarPropietario(Propietario propietario) {
+        boolean centinela = false;
+        if (!verificarPropietario(propietario.getId())) {
+            listPropietarios.add(propietario);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarPropietario(String id) {
+        boolean centinela = false;
+        for (Propietario propietario: listPropietarios) {
+            if (propietario.getId().equals(id)) {
+                listMascotas.remove(propietario);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarPropietario(String id, Propietario actualizado) {
+        boolean centinela = false;
+        for (Propietario propietario : listPropietarios) {
+            if (propietario.getId().equals(id)) {
+                propietario.setId(actualizado.getId());
+                propietario.setNombre(actualizado.getNombre());
+                propietario.setDireccion(actualizado.getDireccion());
+                propietario.setPuntajeFidelidad(actualizado.getPuntajeFidelidad());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarPropietario(String id) {
+        boolean centinela = false;
+        for (Propietario propietario : listPropietarios) {
+            if (propietario.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
 
     //--------------------------------- CRUD Consulta --------------------------------
 
@@ -118,6 +168,155 @@ public class Veterinaria {
         }
         return centinela;
     }
+    // -------------------------------- CRUD Gato ------------------------------------
+
+    public boolean agregarGato(Mascota gato) {
+        boolean centinela = false;
+        if (!verificarGato(gato.getId())) {
+            listMascotas.add(gato);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarGato(String id) {
+        boolean centinela = false;
+        for (Mascota gato: listMascotas) {
+            if (gato.getId().equals(id)) {
+                listMascotas.remove(gato);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarGato(String id, Mascota actualizado) {
+        boolean centinela = false;
+        for (Mascota gato : listMascotas) {
+            if (gato.getId().equals(id)) {
+                gato.setId(actualizado.getId());
+                gato.setNombre(actualizado.getNombre());
+                gato.setRaza(actualizado.getRaza());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarGato(String id) {
+        boolean centinela = false;
+        for (Mascota gato : listMascotas) {
+            if (gato.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+    // -------------------------------- CRUD Perro ------------------------------------
+
+    public boolean agregarPerro(Mascota perro) {
+        boolean centinela = false;
+        if (!verificarPerro(perro.getId())) {
+            listMascotas.add(perro);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarPerro(String id) {
+        boolean centinela = false;
+        for (Mascota perro: listMascotas) {
+            if (perro.getId().equals(id)) {
+                listMascotas.remove(perro);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarPerro(String id, Mascota actualizado) {
+        boolean centinela = false;
+        for (Mascota perro : listMascotas) {
+            if (perro.getId().equals(id)) {
+                perro.setId(actualizado.getId());
+                perro.setNombre(actualizado.getNombre());
+                perro.setRaza(actualizado.getRaza());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarPerro(String id) {
+        boolean centinela = false;
+        for (Mascota perro : listMascotas) {
+            if (perro.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+
+
+    // -------------------------------- CRUD Reptil -------------------------------------
+
+    public boolean agregarReptil(Mascota reptil) {
+        boolean centinela = false;
+        if (!verificarReptil(reptil.getId())) {
+            listMascotas.add(reptil);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarReptil(String id) {
+        boolean centinela = false;
+        for (Mascota reptil: listMascotas) {
+            if (reptil.getId().equals(id)) {
+                listMascotas.remove(reptil);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarReptil(String id, Mascota actualizado) {
+        boolean centinela = false;
+        for (Mascota reptil : listMascotas) {
+            if (reptil.getId().equals(id)) {
+                reptil.setId(actualizado.getId());
+                reptil.setNombre(actualizado.getNombre());
+                reptil.setRaza(actualizado.getRaza());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarReptil(String id) {
+        boolean centinela = false;
+        for (Mascota reptil : listMascotas) {
+            if (reptil.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+
 
     // -------------------------------- CRUD Mascota ---------------------------------
 

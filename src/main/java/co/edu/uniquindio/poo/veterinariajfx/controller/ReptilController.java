@@ -15,8 +15,8 @@ public class ReptilController {
     }
 
 
-    public boolean crearReptil(Ave ave) {
-        return veterinaria.agregarAve(ave);
+    public boolean crearReptil(Mascota reptil) {
+        return veterinaria.agregarReptil(reptil);
     }
 
 
@@ -25,15 +25,15 @@ public class ReptilController {
     }
 
 
-    public boolean eliminarAve(String id) {
-        return veterinaria.eliminarAve(id);
+    public boolean eliminarReptil(String id) {
+        return veterinaria.eliminarReptil(id);
     }
 
 
-    public boolean actualizarAve(String id, Ave ave) {
-        return veterinaria.actualizarAve(id, ave);
+    public boolean actualizarReptil(String id, Mascota reptil) {
+        return veterinaria.actualizarReptil(id, reptil);
     }
 
 
-}
+
 }

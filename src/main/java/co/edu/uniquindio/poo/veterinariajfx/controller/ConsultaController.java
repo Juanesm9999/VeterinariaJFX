@@ -17,23 +17,23 @@ public class ConsultaController {
     }
 
 
-    public boolean crearMascota(Consulta consulta) {
+    public boolean crearConsulta(Consulta consulta) {
         return veterinaria.agregarConsulta(consulta);
     }
 
 
-    public List<Consulta> obtenerListaMascotas() {
-        return veterinaria.getListMascotas();
+    public List<Consulta> obtenerListaConsultas() {
+        return veterinaria.getListConsultas();
     }
 
 
-    public boolean eliminarMascota(String id) {
-        return veterinaria.eliminarMascota(id);
+    public boolean eliminarConsulta(String id) {
+        return veterinaria.eliminarConsulta(id);
     }
 
 
-    public boolean actualizarMascota(String id, Mascota mascota) {
-        return veterinaria.actualizarMascota(id, mascota);
+    public boolean actualizarConsulta(String id, Consulta consulta) {
+        return veterinaria.actualizarConsulta(id, consulta);
     }
 
 
