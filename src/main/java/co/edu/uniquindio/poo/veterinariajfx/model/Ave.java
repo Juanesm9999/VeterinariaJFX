@@ -1,13 +1,15 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public class Ave extends Mascota{
+
     private String TIpoDePlumaje;
-    private Boolean CapacidadDeVuelo;
+    private Boolean isVueloCorto;
     private String CantidadDeImitaciones;
+
     public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
         super(nombre,id,raza,peso,edadEnMeses,especie);
         this.TIpoDePlumaje = TipoDePlumaje;
-        this.CapacidadDeVuelo = CapacidadDeVuelo;
+        this.isVueloCorto = isVueloCorto;
         this.CantidadDeImitaciones = CapacidadDeImitaciones;
     }
 
@@ -19,12 +21,12 @@ public class Ave extends Mascota{
         this.TIpoDePlumaje = TIpoDePlumaje;
     }
 
-    public Boolean getCapacidadDeVuelo() {
-        return CapacidadDeVuelo;
+    public Boolean getIsVueloCorto() {
+        return isVueloCorto;
     }
 
-    public void setCapacidadDeVuelo(Boolean capacidadDeVuelo) {
-        CapacidadDeVuelo = capacidadDeVuelo;
+    public void setIsVueloCorto(Boolean isVueloCorto) {
+        this.isVueloCorto = isVueloCorto;
     }
 
     public String getCantidadDeImitaciones() {
@@ -34,7 +36,9 @@ public class Ave extends Mascota{
     public void setCantidadDeImitaciones(String cantidadDeImitaciones) {
         CantidadDeImitaciones = cantidadDeImitaciones;
     }
-    public double CalcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie){
+
+    @Override
+    public double CalcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
         precioBase = precioBase * 1.25;
 
         if(getEdadEnMeses()>84){

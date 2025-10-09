@@ -19,6 +19,57 @@ public class Veterinaria {
         this.listConsultas = new ArrayList<>();
     }
 
+    // -------------------------------- CRUD Ave -------------------------------------
+
+    public boolean agregarAve(Ave ave) {
+        boolean centinela = false;
+        if (!verificarAve(ave.getId())) {
+            listMascotas.add(ave);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarAve(String id) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                listMascotas.remove(ave);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+//     String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
+    public boolean actualizarAve(String id, Ave actualizado) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                ave.setId(actualizado.getId());
+                ave.setNombre(actualizado.getNombre());
+                ave.setRaza(actualizado.getRaza());
+                ave.setPeso(actualizado.getPeso());
+                ave.setEdadEnMeses(actualizado.getEdadEnMeses());
+                ave.setEspecie(actualizado.getEspecie());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean verificarAve(String id) {
+        boolean centinela = false;
+        for (Mascota ave : listMascotas) {
+            if (ave.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
     // -------------------------------- CRUD Mascota ---------------------------------
 
     public boolean agregarMascota(Mascota mascota) {
@@ -100,22 +151,7 @@ public class Veterinaria {
         this.nombre = nombre;
     }
 
-    public abstradouble calcularCostoConsulta(boolean tipoConsulta ,double precioBase,Integer edadEnMeses,double costoTotal,String Especie) {
-        for (int i = 0; i < listMascotas.size(); i++) {
 
-            if (mascota.getEspecie().equalsIgnoreCase("Ave") || mascota.getEspecie().equalsIgnoreCase("Reptil")) {
-                costoTotal = precioBase * 1.50;
-            }
-            if(mascota.getEdadEnMeses() >84 ) {
-                costoTotal = precioBase + 5000;
-            }
-            if(mascota.getTipoConsulta()= TipoConsulta.URGENCIA){
-                costoTotal= precioBase + 4000;
-            }
-
-        }
-        return costoTotal;
-    }
     public String FechaVacunacion() {
         String fechaVacunacion = "";
         for (Mascota mascota : listMascotas) {
