@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.ConsultaViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.MascotaViewController">
     <children>
         <SplitPane dividerPositions="0.5475792988313857" layoutX="7.0" layoutY="4.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="544.0">
             <items>
@@ -16,56 +16,65 @@
                                 <Blend />
                             </effect>
                             <children>
-                                <Label layoutX="142.0" layoutY="1.0" text="Gestión Consultas">
+                                <Label layoutX="142.0" layoutY="1.0" text="Gestión Gatos">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="41.0" layoutY="58.0" prefHeight="17.0" prefWidth="64.0" text="Id:">
+                                <Label layoutX="38.0" layoutY="58.0" prefHeight="17.0" prefWidth="64.0" text="Id:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="41.0" layoutY="92.0" text="Fecha:">
+                                <Label layoutX="38.0" layoutY="91.0" text="Peso:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="38.0" layoutY="157.0" text="Tipo de Consulta:">
+                                <Label layoutX="38.0" layoutY="157.0" text="Nombre:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="38.0" layoutY="124.0" text="Costo total:">
+                                <Label layoutX="38.0" layoutY="124.0" text="Edad en meses:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="42.0" layoutY="190.0" text="Precio Base:">
+                                <Label layoutX="38.0" layoutY="190.0" text="Especie:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
                                 <TextField fx:id="txtId" layoutX="192.0" layoutY="59.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtFecha" layoutX="192.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtTipoConsulta" layoutX="192.0" layoutY="92.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtCostoTotal" layoutX="192.0" layoutY="158.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtPrecioBase" layoutX="192.0" layoutY="191.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtEdadEnMeses" layoutX="192.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtPeso" layoutX="192.0" layoutY="92.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtNombre" layoutX="192.0" layoutY="158.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtEspecie" layoutX="192.0" layoutY="191.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtRaza" layoutX="192.0" layoutY="224.0" prefHeight="25.0" prefWidth="194.0" />
+
+                                <Label layoutX="39.0" layoutY="222.0" text="Raza:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
                             </children>
                         </Pane>
-                        <Button fx:id="btbAgregarConsulta" layoutX="108.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAgregarConsulta" text="Agregar Consulta" />
-                        <Button fx:id="btnActualizarConsulta" layoutX="312.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActualizarConsulta" text="Actualizar Consulta" />
+                        <Button fx:id="btbAgregarMascota" layoutX="108.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAgregarMascota" text="Agregar Mascota" />
+                        <Button fx:id="btnActualizarMascota" layoutX="312.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActualizarMascota" text="Actualizar mascota" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="542.0">
                     <children>
-                        <TableView fx:id="tblListConsultas" layoutX="36.0" layoutY="57.0" prefHeight="206.0" prefWidth="477.0">
+                        <TableView fx:id="tblListMascota" layoutX="36.0" layoutY="57.0" prefHeight="206.0" prefWidth="477.0">
                             <columns>
                                 <TableColumn fx:id="tbcId" prefWidth="75.0" text="Id" />
-                                <TableColumn fx:id="tbcFecha" prefWidth="53.0" text="Fecha" />
-                                <TableColumn fx:id="tbcTipoConsulta" prefWidth="85.0" text="Tipo de consulta" />
-                                <TableColumn fx:id="tbcCostoTotal" prefWidth="73.0" text="Costo Total" />
-                                <TableColumn fx:id="tbcPrecioBase" prefWidth="84.0" text="Precio Base" />
+                                <TableColumn fx:id="tbcPeso" prefWidth="53.0" text="Peso" />
+                                <TableColumn fx:id="tbcEdadEnMeses" prefWidth="105.0" text="Edad En Meses" />
+                                <TableColumn fx:id="tbcNombre" prefWidth="85.0" text="Nombre" />
+                                <TableColumn fx:id="tbcEspecie" prefWidth="73.0" text="Especie" />
+                                <TableColumn fx:id="tbcRaza" prefWidth="84.0" text="Raza" />
+
                             </columns>
                         </TableView>
                         <Button fx:id="btnLimpiar" layoutX="108.0" layoutY="281.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />

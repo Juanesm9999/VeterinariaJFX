@@ -11,6 +11,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
 
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import co.edu.uniquindio.poo.veterinariajfx.viewController.AveViewController;
+import co.edu.uniquindio.poo.veterinariajfx.viewController.ConsultaViewController;
 import co.edu.uniquindio.poo.veterinariajfx.viewController.PrimaryViewController;
 import co.edu.uniquindio.poo.veterinariajfx.viewController.MascotaViewController;
 import javafx.application.Application;
@@ -34,6 +35,25 @@ public class App extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Gestion de Mascotas");
         openViewPrincipal();
+    }
+
+    private void openCrudConsulta() {
+        inicializarData();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudConsulta.fxml"));
+            javafx.scene.layout.VBox rootLayout = (javafx.scene.layout.VBox) loader.load();
+            ConsultaViewController consultaController = loader.getController();
+            consultaController.setApp(this);
+
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private void openCrudAve() {

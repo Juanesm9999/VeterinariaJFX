@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
 
+import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
 import co.edu.uniquindio.poo.veterinariajfx.model.Gato;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
@@ -21,8 +22,8 @@ public class GatoController {
     }
 
 
-    public List<Mascota> obtenerListaMascotas() {
-        return veterinaria.getListMascotas();
+    public Gato obtenerListaMascotas() {
+        return (Gato) veterinaria.getListMascotas();
     }
 
 

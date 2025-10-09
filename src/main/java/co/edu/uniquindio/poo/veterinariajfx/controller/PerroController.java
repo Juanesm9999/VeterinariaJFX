@@ -7,7 +7,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import java.util.List;
 
 public class PerroController {
-    Veterinaria veterinaria;
+    static Veterinaria veterinaria;
 
 
     public PerroController(Veterinaria veterinaria) {
@@ -20,7 +20,7 @@ public class PerroController {
     }
 
 
-    public List<Mascota> obtenerListPerros() {
+    public static List<Mascota> obtenerListMascotas() {
         return veterinaria.getListMascotas();
     }
 

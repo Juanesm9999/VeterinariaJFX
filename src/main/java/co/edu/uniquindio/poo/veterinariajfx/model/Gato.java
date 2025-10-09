@@ -1,23 +1,23 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public class Gato extends Mascota{
-    private Boolean IsIndoor;
+    private Boolean isIndoor;
     private String CantidadHorasSuenio;
     private String NivelIndependencia;
     public Gato(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie, Boolean IsIndoor,String CantidadHorasSuenio,String NivelIndependencia){
         super(nombre,id,raza,peso,edadEnMeses,especie);
-        this.IsIndoor = IsIndoor;
+        this.isIndoor = IsIndoor;
         this.CantidadHorasSuenio = CantidadHorasSuenio;
         this.NivelIndependencia = NivelIndependencia;
 
     }
 
-    public Boolean getIndoor() {
-        return IsIndoor;
+    public Boolean getIsIndoor() {
+        return isIndoor;
     }
 
-    public void setIndoor(Boolean indoor) {
-        IsIndoor = indoor;
+    public void setIsIndoor(Boolean indoor) {
+        isIndoor = indoor;
     }
 
     public String getCantidadHorasSuenio() {
@@ -34,6 +34,14 @@ public class Gato extends Mascota{
 
     public void setNivelIndependencia(String nivelIndependencia) {
         NivelIndependencia = nivelIndependencia;
+    }
+
+    public Boolean getIndoor() {
+        return isIndoor;
+    }
+
+    public void setIndoor(Boolean indoor) {
+        isIndoor = indoor;
     }
 
     @Override

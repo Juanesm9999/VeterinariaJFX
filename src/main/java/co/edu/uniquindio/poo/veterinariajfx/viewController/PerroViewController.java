@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.PerroController;
+import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class PerroViewController {
     PerroController perroController;
-    ObservableList<Perro> listPerros = FXCollections.observableArrayList();
+    ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
     Perro selectedPerro;
 
 
@@ -60,7 +61,7 @@ public class PerroViewController {
 
 
     @FXML
-    private TableView<Perro> tblListPerro;
+    private TableView<Perro> tblListMascota;
 
 
     @FXML
@@ -108,8 +109,8 @@ public class PerroViewController {
 
 
     @FXML
-    void onActualizarMascota() {
-        actualizarMascota();
+    void onActualizarPerro() {
+        actualizarPerro();
     }
 
 
@@ -128,7 +129,7 @@ public class PerroViewController {
     @FXML
     void initialize() {
         this.app = app;
-        mascotaController = new MascotaController(app.veterinaria);
+        perroController = new PerroController(app.veterinaria);
         initView();
     }
 
@@ -139,7 +140,7 @@ public class PerroViewController {
 
 
         // Obtiene la lista
-        obtenerMascota();
+        obtenerPerro();
 
 
         // Limpiar la tabla
@@ -166,15 +167,15 @@ public class PerroViewController {
     }
 
 
-    private void obtenerMascota() {
-        listMascotas.addAll(mascotaController.obtenerListaMascotas());
+    private void obtenerPerro() {
+        listMascotas.addAll(PerroController.obtenerListMascotas());
     }
 
 
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            selectedMascota = newSelection;
-            mostrarInformacionMascota(selectedMascota);
+            selectedPerro = newSelection;
+            mostrarInformacionMascota(selectedPerro);
         });
     }
 
