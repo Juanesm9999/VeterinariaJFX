@@ -108,30 +108,82 @@ public class Veterinaria {
     }
 
 
-    public List<Propietario> MayorNumeroVisitas() {
-        MayorNumeroVisitas();
-        for (Propietario propietario : listPropietarios) {
-            if(propietario.getPuntajeFidelidad())
+    public String sugerirProximaVacunacion(String especie) {
+        String fechaVacunacion = "";
+
+        if (especie.equalsIgnoreCase("Perro") || especie.equalsIgnoreCase("Gato")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 12 meses";
+        } else if (especie.equalsIgnoreCase("Ave")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 8 meses";
+        } else if (especie.equalsIgnoreCase("Reptil")) {
+            fechaVacunacion = "Se le sugiere vacunar a su mascota cada 18 meses";
+        } else {
+            fechaVacunacion = "Especie no reconocida para vacunación";
         }
+
+        return fechaVacunacion;
     }
-    public int ClasificarUrgencia(TipoConsulta tipoConsulta) {
-        int prioridad = 0;
-        switch (tipoConsulta) {
-            case TipoConsulta.URGENCIA:
-                return prioridad = 1;
 
-            case TipoConsulta.CONSULTA:
-                return prioridad = 2;
 
-            case TipoConsulta.VACUNACION:
-                return prioridad = 3;
-            case TipoConsulta.CONTROL_RUTINARIO:
-                return prioridad = 4;
 
-            default:
-                return prioridad = 5;
+
+    public List<Propietario> obtenerRankingPropietarios() {
+
+        List<Propietario> propietariosUnicos = new ArrayList<>();
+
+
+        for (int i = 0; i < listConsultas.size(); i++) {
+            Consulta consulta = listConsultas.get(i);
+
+            if (consulta != null && consulta.getListMascotas() != null) {
+                List<Mascota> mascotas = consulta.getListMascotas();
+
+                for (int k = 0; k < mascotas.size(); k++) {
+                    Mascota mascota = mascotas.get(k);
+
+                    if (mascota != null && mascota.getThePropietario() != null) {
+                        Propietario propietario = mascota.getThePropietario();
+
+
+                        boolean encontrado = false;
+                        for (int j = 0; j < propietariosUnicos.size(); j++) {
+                            if (propietariosUnicos.get(j).getNombre().equals(propietario.getNombre())) {
+                                encontrado = true;
+
+                                double puntajeActual = propietariosUnicos.get(j).getPuntajeFidelidad();
+                                propietariosUnicos.get(j).setPuntajeFidelidad(puntajeActual + 1);
+                                break;
+                            }
+                        }
+
+
+                        if (!encontrado) {
+                            propietario.setPuntajeFidelidad(1.0);
+                            propietariosUnicos.add(propietario);
+                        }
+                    }
+                }
+            }
         }
+
+
+        for (int i = 0; i < propietariosUnicos.size() - 1; i++) {
+            for (int j = 0; j < propietariosUnicos.size() - 1 - i; j++) {
+                if (propietariosUnicos.get(j).getPuntajeFidelidad() <
+                        propietariosUnicos.get(j + 1).getPuntajeFidelidad()) {
+
+                    Propietario temp = propietariosUnicos.get(j);
+                    propietariosUnicos.set(j, propietariosUnicos.get(j + 1));
+                    propietariosUnicos.set(j + 1, temp);
+                }
+            }
+        }
+
+        return propietariosUnicos;
     }
+
+
+
 
     public List<Propietario> getListPropietarios() {
         return listPropietarios;

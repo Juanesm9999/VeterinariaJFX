@@ -61,5 +61,19 @@ public class Consulta {
         this.precioBase = precioBase;
     }
 
+    public int clasificarUrgencia(TipoConsulta tipoConsulta) {
+        switch (tipoConsulta) {
+            case URGENCIA:
+                return 1;
+            case CONSULTA:
+                return 2;
+            case VACUNACION:
+                return 3;
+            case CONTROL_RUTINARIO:
+                return 4;
+            default:
+                return 5;
+        }
+    }
 
 }

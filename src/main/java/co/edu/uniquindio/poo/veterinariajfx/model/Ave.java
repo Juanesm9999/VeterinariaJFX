@@ -4,6 +4,7 @@ public class Ave extends Mascota{
     private String TIpoDePlumaje;
     private Boolean isVueloCorto;
     private String CantidadDeImitaciones;
+
     public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
         super(nombre,id,raza,peso,edadEnMeses,especie);
         this.TIpoDePlumaje = TipoDePlumaje;
@@ -59,5 +60,6 @@ public class Ave extends Mascota{
 
         return costoTotal;
     }
+
 
 }
