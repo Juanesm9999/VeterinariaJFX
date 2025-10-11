@@ -15,7 +15,7 @@ public class PerroController {
     }
 
 
-    public boolean crearPerro(Mascota perro) {
+    public static boolean crearPerro(Mascota perro) {
         return veterinaria.agregarPerro(perro);
     }
 

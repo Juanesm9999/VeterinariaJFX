@@ -11,11 +11,10 @@ public class Consulta {
     private double precioBase;
     private double costoTotal;
 
-    public Consulta(String id, LocalDate fecha, List<Mascota>listMascotas, String tipoConsulta, double precioBase, double costoTotal) {
+    public Consulta(String id, LocalDate fecha,  TipoConsulta tipoConsulta, double precioBase, double costoTotal) {
         this.id = id;
         this.fecha = fecha;
-        this.listMascotas = listMascotas;
-        this.tipoConsulta = TipoConsulta.valueOf(tipoConsulta);
+        this.tipoConsulta = tipoConsulta;
         this.precioBase = 10000;
         this.costoTotal = 0;
 

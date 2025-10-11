@@ -11,9 +11,15 @@ public class ConsultaController {
     Veterinaria veterinaria;
 
 
+
     public ConsultaController(Veterinaria consulta) {
         this.veterinaria = veterinaria;
     }
+
+    public void setVeterinaria(Veterinaria veterinaria) {
+        this.veterinaria = veterinaria;
+    }
+
 
 
     public boolean crearConsulta(Consulta consulta) {

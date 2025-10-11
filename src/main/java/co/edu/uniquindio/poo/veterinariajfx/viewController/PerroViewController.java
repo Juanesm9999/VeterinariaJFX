@@ -4,15 +4,13 @@ import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.PerroController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
+import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 import java.net.URL;
@@ -34,24 +32,24 @@ public class PerroViewController {
 
 
     @FXML
-    private TextField txtnombre;
+    private TextField txtNombre;
 
     @FXML
-    private TextField txtid;
+    private TextField txtId;
 
 
     @FXML
-    private TextField txtraza;
+    private TextField txtRaza;
     @FXML
-    private TextField txtpeso;
+    private TextField txtPeso;
     @FXML
-    private TextField txtedadEnMeses;
+    private TextField txtEdadEnMeses;
     @FXML
-    private TextField txtespecie;
+    private TextField txtEspecie;
     @FXML
-    private TextField txttamanio;
+    private ComboBox txtTamanio;
     @FXML
-    private TextField txtivelAdiestramiento;
+    private TextField txtNivelAdiestramiento;
     @FXML
     private TextField txtNecesidadPaseosDiarios;
 
@@ -61,7 +59,7 @@ public class PerroViewController {
 
 
     @FXML
-    private TableView<Perro> tblListMascota;
+    private TableView<Mascota> tblListMascota;
 
 
     @FXML
@@ -73,11 +71,11 @@ public class PerroViewController {
 
 
     @FXML
-    private TableColumn<Perro, String> tbcnombre;
+    private TableColumn<Perro, String> tbcNombre;
     @FXML
-    private TableColumn<Perro, String> tbcid;
+    private TableColumn<Perro, String> tbcId;
     @FXML
-    private TableColumn<Perro, String> tbcraza;
+    private TableColumn<Perro, String> tbcRaza;
 
     @FXML
     private TableColumn<Perro, String> tbcPeso;
@@ -88,11 +86,14 @@ public class PerroViewController {
     @FXML
     private TableColumn<Perro, String> tbcEspecie;
 
-
-
+    @FXML
+    private TableColumn<Perro, String> tbcTamanio;
 
     @FXML
-    private TableColumn<Perro, String> tbcRaza;
+    private TableColumn<Perro, String> tbcNivelAdiestramiento;
+
+    @FXML
+    private TableColumn<Perro, String> tbcNecesidadPaseosDiarios;
 
 
     @FXML
@@ -174,77 +175,80 @@ public class PerroViewController {
 
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            selectedPerro = newSelection;
-            mostrarInformacionMascota(selectedPerro);
+            selectedPerro = (Perro) newSelection;
+            mostrarInformacionPerro(selectedPerro);
         });
     }
 
 
-    private void mostrarInformacionMascota(Mascota mascota) {
-        if (mascota != null) {
-            txtId.setText(mascota.getId());
-            txtNombre.setText(mascota.getNombre());
-            txtRaza.setText(mascota.getRaza());
+    private void mostrarInformacionPerro(Perro perro) {
+        if (perro != null) {
+            txtId.setText(perro.getId());
+            txtNombre.setText(perro.getNombre());
+            txtRaza.setText(perro.getRaza());
+            txtEspecie.setText(perro.getEspecie());
+            txtEdadEnMeses.setText(String.valueOf(perro.getEdadEnMeses()));
+            txtPeso.setText(String.valueOf(perro.getPeso()));
+            txtNivelAdiestramiento.setText(perro.getNivelAdiestramiento());
+            txtTamanio.setValue(perro.getNivelAdiestramiento());
+            txtNecesidadPaseosDiarios.setText(perro.getNivelAdiestramiento());
         }
     }
 
 
-    private void agregarMascota() {
-        Mascota mascota = buildMascota();
-        if (mascotaController.crearMascota(mascota)) {
-            listMascotas.add(mascota);
-            limpiarCamposMascota();
+    private void agregarPerro() {
+        Mascota perro = buildPerro();
+        if (PerroController.crearPerro(perro)) {
+            listMascotas.add(perro);
+            limpiarCamposPerro();
         }
     }
 
 
-    private Mascota buildMascota() {
-        Mascota mascota = new Mascota(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText()) {
-            @Override
-            public double CalcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie) {
-                return 0;
-            }
-        };
-        return mascota;
+    private Perro buildPerro() {
+
+
+        Perro perro = new Perro(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), comboTamanio.get, txtNivelAdiestramiento.getText(), txtNecesidadPaseosDiarios.getText());
+        return perro;
     }
 
 
     private void eliminarMascota() {
-        if (mascotaController.eliminarMascota(txtId.getText())) {
-            listMascotas.remove(selectedMascota);
-            limpiarCamposMascota();
+        if (perroController.eliminarPerro(txtId.getText())) {
+            listMascotas.remove(selectedPerro);
+            limpiarCamposPerro();
             limpiarSeleccion();
         }
     }
 
 
-    private void actualizarMascota() {
+    private void actualizarPerro() {
 
 
-        if (selectedMascota != null &&
-                mascotaController.actualizarMascota(selectedMascota.getId(), buildMascota())) {
+        if (selectedPerro != null &&
+                perroController.actualizarPerro(selectedPerro.getId(), buildPerro())) {
 
 
-            int index = listMascotas.indexOf(selectedMascota);
+            int index = listMascotas.indexOf(selectedPerro);
             if (index >= 0) {
-                listMascotas.set(index, buildMascota());
+                listMascotas.set(index, buildPerro());
             }
 
 
             tblListMascota.refresh();
             limpiarSeleccion();
-            limpiarCamposMascota();
+            limpiarCamposPerro();
         }
     }
 
 
     private void limpiarSeleccion() {
         tblListMascota.getSelectionModel().clearSelection();
-        limpiarCamposMascota();
+        limpiarCamposPerro();
     }
 
 
-    private void limpiarCamposMascota() {
+    private void limpiarCamposPerro() {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();

@@ -10,10 +10,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
 import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
 
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
-import co.edu.uniquindio.poo.veterinariajfx.viewController.AveViewController;
-import co.edu.uniquindio.poo.veterinariajfx.viewController.ConsultaViewController;
-import co.edu.uniquindio.poo.veterinariajfx.viewController.PrimaryViewController;
-import co.edu.uniquindio.poo.veterinariajfx.viewController.MascotaViewController;
+import co.edu.uniquindio.poo.veterinariajfx.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,6 +19,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class App extends Application {
 
@@ -37,7 +35,7 @@ public class App extends Application {
         openViewPrincipal();
     }
 
-    private void openCrudConsulta() {
+    public void openCrudConsulta() {
         inicializarData();
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -45,6 +43,25 @@ public class App extends Application {
             javafx.scene.layout.VBox rootLayout = (javafx.scene.layout.VBox) loader.load();
             ConsultaViewController consultaController = loader.getController();
             consultaController.setApp(this);
+
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void openCrudPerro() {
+        inicializarData();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudPerro.fxml"));
+            AnchorPane rootLayout = loader.load();
+            PerroViewController perroController = loader.getController();
+            perroController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -124,6 +141,10 @@ public class App extends Application {
     public void inicializarData(){
         Ave ave = new Ave("Rocky", "123", "Chihuahua", 10.0, 5, "Perro", "Azul", true, "pocas");
         veterinaria.agregarAve(ave);
+
+        Veterinaria veterinaria1 = new Veterinaria("Vida Animal", "001");
     }
+
+
 }
 

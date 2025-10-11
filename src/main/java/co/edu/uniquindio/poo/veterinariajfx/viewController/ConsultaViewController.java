@@ -3,17 +3,16 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.ConsultaController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Consulta;
+import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
+import javax.swing.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -40,7 +39,7 @@ public class ConsultaViewController {
     private TextField txtFecha;
 
     @FXML
-    private TextField txtTipoConsulta;
+    private ComboBox<TipoConsulta> comboTipoConsulta;
 
     @FXML
     private TextField txtPrecioBase;
@@ -168,7 +167,7 @@ public class ConsultaViewController {
     private void mostrarInformacionConsulta(Consulta consulta) {
         if (consulta != null) {
             txtId.setText(consulta.getId());
-            txtTipoConsulta.setText(consulta.getTipoConsulta().toString());
+            comboTipoConsulta.setValue(consulta.getTipoConsulta());
             txtPrecioBase.setText(String.valueOf(consulta.getPrecioBase()));
             txtCostoTotal.setText(String.valueOf(consulta.getCostoTotal()));
             txtFecha.setText(consulta.getFecha().toString());
@@ -184,8 +183,8 @@ public class ConsultaViewController {
     }
 
 
-   private Consulta buildConsulta() {
-            Consulta consulta = new Consulta(txtId.getText(), LocalDate.now(), List.of(), txtTipoConsulta.getText(), Double.parseDouble(txtPrecioBase.getText()), Double.parseDouble(txtCostoTotal.getText()));
+    private Consulta buildConsulta() {
+        Consulta consulta = new Consulta(txtId.getText(), LocalDate.now(), comboTipoConsulta.getValue(), Double.parseDouble(txtPrecioBase.getText()), Double.parseDouble(txtCostoTotal.getText()));
         return consulta;
     }
 
@@ -229,7 +228,7 @@ public class ConsultaViewController {
         txtId.clear();
         txtFecha.clear();
         txtPrecioBase.clear();
-        txtTipoConsulta.clear();
+        comboTipoConsulta.getSelectionModel().clearSelection();
         txtCostoTotal.clear();
     }
 
