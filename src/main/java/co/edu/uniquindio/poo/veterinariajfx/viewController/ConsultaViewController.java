@@ -236,4 +236,8 @@ public class ConsultaViewController {
     public void setApp(App app) {
         this.app = app;
     }
+
+    public ConsultaController getConsultaController() {
+        return consultaController;
+    }
 }

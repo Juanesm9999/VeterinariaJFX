@@ -6,7 +6,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
 
 public class AveController {
-    Veterinaria veterinaria;
+    static Veterinaria veterinaria;
 
 
     public AveController(Veterinaria veterinaria) {
@@ -19,7 +19,7 @@ public class AveController {
     }
 
 
-    public Ave obtenerListMascotas() {
+    public static Ave obtenerListMascotas() {
         return (Ave) veterinaria.getListMascotas();
     }
 

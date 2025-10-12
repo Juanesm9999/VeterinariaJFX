@@ -40,9 +40,33 @@ public class App extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudConsulta.fxml"));
-            javafx.scene.layout.VBox rootLayout = (javafx.scene.layout.VBox) loader.load();
+            javafx.scene.layout.AnchorPane rootLayout = loader.load();
+
+            // Controlador principal de la vista
             ConsultaViewController consultaController = loader.getController();
             consultaController.setApp(this);
+
+            // 🔹 Pásale la instancia de Veterinaria al controlador de lógica
+            consultaController.getConsultaController().setVeterinaria(veterinaria);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void openCrudGato() {
+        inicializarData();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudGato.fxml"));
+            AnchorPane rootLayout = loader.load();
+            PerroViewController perroController = loader.getController();
+            perroController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -53,6 +77,8 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
+
+
 
     public void openCrudPerro() {
         inicializarData();
@@ -73,7 +99,26 @@ public class App extends Application {
         }
     }
 
-    private void openCrudAve() {
+    public void openCrudPropietario() {
+        inicializarData();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudPropietario.fxml"));
+            AnchorPane rootLayout = loader.load();
+            PropietarioViewController propietarioViewController = loader.getController();
+            propietarioViewController.setApp(this);
+
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void openCrudAve() {
         inicializarData();
         try {
             FXMLLoader loader = new FXMLLoader();

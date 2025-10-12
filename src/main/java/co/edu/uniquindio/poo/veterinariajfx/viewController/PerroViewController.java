@@ -47,7 +47,7 @@ public class PerroViewController {
     @FXML
     private TextField txtEspecie;
     @FXML
-    private ComboBox txtTamanio;
+    private ComboBox<Tamanio> comboTamanio;
     @FXML
     private TextField txtNivelAdiestramiento;
     @FXML
@@ -169,7 +169,7 @@ public class PerroViewController {
 
 
     private void obtenerPerro() {
-        listMascotas.addAll(PerroController.obtenerListMascotas());
+        listMascotas.addAll(perroController.obtenerListMascotas());
     }
 
 
@@ -190,7 +190,7 @@ public class PerroViewController {
             txtEdadEnMeses.setText(String.valueOf(perro.getEdadEnMeses()));
             txtPeso.setText(String.valueOf(perro.getPeso()));
             txtNivelAdiestramiento.setText(perro.getNivelAdiestramiento());
-            txtTamanio.setValue(perro.getNivelAdiestramiento());
+            comboTamanio.setValue(Tamanio.valueOf(perro.getNivelAdiestramiento()));
             txtNecesidadPaseosDiarios.setText(perro.getNivelAdiestramiento());
         }
     }
@@ -208,7 +208,7 @@ public class PerroViewController {
     private Perro buildPerro() {
 
 
-        Perro perro = new Perro(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), comboTamanio.getValue(), txtNivelAdiestramiento.getText(), txtNecesidadPaseosDiarios.getText());
+        Perro perro = new Perro(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), (Tamanio) comboTamanio.getValue(), txtNivelAdiestramiento.getText(), txtNecesidadPaseosDiarios.getText());
         return perro;
     }
 
@@ -252,6 +252,12 @@ public class PerroViewController {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();
+        txtNecesidadPaseosDiarios.clear();
+        comboTamanio.getSelectionModel().clearSelection();
+        txtEdadEnMeses.clear();
+        txtEdadEnMeses.setEditable(false);
+        txtNivelAdiestramiento.clear();
+        txtNecesidadPaseosDiarios.clear();
     }
 
 

@@ -46,9 +46,9 @@ public class AveViewController {
     @FXML
     private TextField txtEspecie;
     @FXML
-    private ComboBox txtTipoDePlumaje;
+    private ComboBox comboTipoDePlumaje;
     @FXML
-    private TextField txtisVueloCorto;
+    private TextField txtIsVueloCorto;
     @FXML
     private TextField txtCantidadDeImitaciones;
 
@@ -89,7 +89,7 @@ public class AveViewController {
     private TableColumn<Ave, String> tbcTipoDePlumaje;
 
     @FXML
-    private TableColumn<Ave, String> tbcisVueloCorto;
+    private TableColumn<Ave, String> tbcIsVueloCorto;
 
     @FXML
     private TableColumn<Ave, String> tbcCantidadDeImitaciones;
@@ -110,7 +110,7 @@ public class AveViewController {
 
     @FXML
     void onActualizarAve() {
-        actualizarAve();
+       actualizarAve();
     }
 
 
@@ -122,7 +122,7 @@ public class AveViewController {
 
     @FXML
     void onEliminar() {
-        eliminarMascota();
+        eliminarAve();
     }
 
 
@@ -163,6 +163,11 @@ public class AveViewController {
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
         tbcEspecie.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecie()));
+        tbcTipoDePlumaje.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTipoDePlumaje()));
+        tbcIsVueloCorto.setCellValueFactory(cellData -> new SimpleStringProperty());
+        tbcCantidadDeImitaciones.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadDeImitaciones()));
+
+
         //faltan los atributos de ave
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
@@ -190,40 +195,40 @@ public class AveViewController {
             txtEspecie.setText(ave.getEspecie());
             txtEdadEnMeses.setText(String.valueOf(ave.getEdadEnMeses()));
             txtPeso.setText(String.valueOf(ave.getPeso()));
-            txtTipoDePlumaje.setText(ave.getTipoDePlumaje());
-            txtisVueloCorto.setValue(ave.getIsVueloCorto());
+            comboTipoDePlumaje.setValue(ave.getTipoDePlumaje());
+            txtIsVueloCorto.setText(ave.getIsVueloCorto());
             txtCantidadDeImitaciones.setText(ave.getCantidadDeImitaciones());
         }
     }
 
 
     private void agregarAve() {
-        Mascota ave = buildAve();
-            if (AveController.crearAve(ave)) {
+        Ave ave = buildAve();
+            if (aveController.crearAve(ave)) {
             listMascotas.add(ave);
             limpiarCamposAve();
         }
     }
 
 
-    private Ave buildPerro() {
+    private Ave buildAve() {
 
 
-        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoDePlumaje.getText(), Boolean.parseBoolean(txtisVueloCorto.getText()), txtCantidadDeImitaciones.getText());
+        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), (String) comboTipoDePlumaje.getValue(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
         return ave;
     }
 
 
-    private void eliminarMascota() {
+    private void eliminarAve() {
         if (aveController.eliminarAve(txtId.getText())) {
             listMascotas.remove(selectedAve);
-            limpiarCamposPerro();
+            limpiarCamposAve();
             limpiarSeleccion();
         }
     }
 
 
-    private void actualizarPerro() {
+    private void actualizarAve() {
 
 
         if (selectedAve != null &&
@@ -253,6 +258,13 @@ public class AveViewController {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();
+        txtCantidadDeImitaciones.clear();
+        txtEspecie.clear();
+        txtEdadEnMeses.clear();
+        txtPeso.clear();
+        comboTipoDePlumaje.getSelectionModel().clearSelection();
+        txtIsVueloCorto.clear();
+        txtCantidadDeImitaciones.clear();
     }
 
 

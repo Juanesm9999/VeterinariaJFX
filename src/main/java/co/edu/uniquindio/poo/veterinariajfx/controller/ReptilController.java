@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
-import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;

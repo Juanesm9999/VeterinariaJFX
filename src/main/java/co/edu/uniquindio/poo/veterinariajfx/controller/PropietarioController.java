@@ -9,7 +9,7 @@ public class PropietarioController {
     Veterinaria veterinaria;
 
 
-    public PropietarioController(Propietario propietario) {
+    public PropietarioController(Veterinaria propietario) {
         this.veterinaria = veterinaria;
     }
 

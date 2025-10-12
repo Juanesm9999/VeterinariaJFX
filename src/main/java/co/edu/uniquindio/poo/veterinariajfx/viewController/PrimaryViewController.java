@@ -34,9 +34,24 @@ public class PrimaryViewController {
     }
 
     @FXML
-   /* void onOpenCrudAve() {
+    void onOpenCrudGato() {
+        app.openCrudConsulta();
+    }
+
+    @FXML
+    void onOpenCrudReptil() {
+        app.openCrudConsulta();
+    }
+
+    @FXML
+    void onOpenCrudPropietario() {
+        app.openCrudConsulta();
+    }
+
+    @FXML
+    void onOpenCrudAve() {
         app.openCrudAve();
-*/
+    }
 
     public void setApp(App app) {
         this.app = app;

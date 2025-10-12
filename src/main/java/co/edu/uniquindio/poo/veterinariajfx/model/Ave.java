@@ -24,8 +24,8 @@ public class Ave extends Mascota{
         return isVueloCorto;
     }
 
-    public Boolean getIsVueloCorto() {
-        return isVueloCorto;
+    public String getIsVueloCorto() {
+        return String.valueOf(isVueloCorto);
     }
 
 

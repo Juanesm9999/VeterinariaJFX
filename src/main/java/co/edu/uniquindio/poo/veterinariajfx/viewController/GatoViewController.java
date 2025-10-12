@@ -199,6 +199,12 @@ public class GatoViewController {
             txtId.setText(gato.getId());
             txtNombre.setText(gato.getNombre());
             txtRaza.setText(gato.getRaza());
+            txtNivelIndependencia.setText(gato.getNivelIndependencia());
+            txtEspecie.setText(gato.getEspecie());
+            txtPeso.setText(String.valueOf(gato.getPeso()));
+            txtEdadEnMeses.setText(String.valueOf(gato.getEdadEnMeses()));
+            txtIsIndoor.setText(String.valueOf(gato.getIsIndoor()));
+            txtCantidadHorasSuenio.setText(String.valueOf(gato.getCantidadHorasSuenio()));
         }
     }
 
@@ -257,6 +263,12 @@ public class GatoViewController {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();
+        txtPeso.clear();
+        txtEdadEnMeses.clear();
+        txtIsIndoor.clear();
+        txtCantidadHorasSuenio.clear();
+        txtNivelIndependencia.clear();
+        txtEspecie.clear();
     }
 
 

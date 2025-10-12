@@ -2,16 +2,15 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.ReptilController;
+import co.edu.uniquindio.poo.veterinariajfx.model.Habitat;
+import co.edu.uniquindio.poo.veterinariajfx.model.NivelPeligrosidad;
 import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 import java.net.URL;
@@ -86,13 +85,13 @@ public class ReptilViewController {
     private TextField txtEdadEnMeses;
 
     @FXML
-    private TextField txtHabitat;
+    private ComboBox comboHabitat;
 
     @FXML
     private TextField txtTemperaturaOptima;
 
     @FXML
-    private TextField txtNivelPeligrosidad;
+    private ComboBox comboNivelPeligrosidad;
 
     @FXML
     private TableColumn<Reptil, String> tbcRaza;
@@ -182,7 +181,7 @@ public class ReptilViewController {
 
 
     private void obtenerReptil() {
-        listMascotas.addAll(reptilController.obtenerListaMascotas());
+        listMascotas.addAll((Reptil) reptilController.obtenerListaMascotas());
     }
 
 
@@ -199,11 +198,19 @@ public class ReptilViewController {
             txtId.setText(reptil.getId());
             txtNombre.setText(reptil.getNombre());
             txtRaza.setText(reptil.getRaza());
+            txtPeso.setText(String.valueOf(reptil.getPeso()));
+            txtTemperaturaOptima.setText(reptil.getTemperaturaOptima());
+            txtEspecie.setText(reptil.getEspecie());
+            txtEdadEnMeses.setText(String.valueOf(reptil.getEdadEnMeses()));
+            comboHabitat.setValue(reptil.getRaza());
+            comboNivelPeligrosidad.setValue(reptil.getRaza());
+
+
         }
     }
 
 
-    private void agregarGato() {
+    private void agregarReptil() {
         Reptil reptil = buildReptil();
         if (reptilController.crearReptil(reptil)) {
             listMascotas.add(reptil);
@@ -213,7 +220,7 @@ public class ReptilViewController {
 
 
     private Reptil buildReptil() {
-        Reptil reptil = new Reptil(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), comboHabitat.getValue(), txtTemperaturaOptima.getText(), comboNivelPeligrosidad.getValue());
+        Reptil reptil = new Reptil(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), (Habitat) comboHabitat.getValue(), txtTemperaturaOptima.getText(), (NivelPeligrosidad) comboNivelPeligrosidad.getValue());
         return reptil;
     }
 
@@ -227,7 +234,7 @@ public class ReptilViewController {
     }
 
 
-    private void actualizarGato() {
+    private void actualizarReptil() {
 
 
         if (selectedReptil != null &&
@@ -257,6 +264,13 @@ public class ReptilViewController {
         txtId.clear();
         txtNombre.clear();
         txtRaza.clear();
+        txtPeso.clear();
+        txtEdadEnMeses.clear();
+        txtEspecie.clear();
+        txtTemperaturaOptima.clear();
+        comboHabitat.getSelectionModel().clearSelection();
+        comboNivelPeligrosidad.getSelectionModel().clearSelection();
+
     }
 
 

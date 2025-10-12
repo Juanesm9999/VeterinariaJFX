@@ -11,15 +11,13 @@ public class ConsultaController {
     Veterinaria veterinaria;
 
 
-
-    public ConsultaController(Veterinaria consulta) {
+    public ConsultaController(Veterinaria veterinaria) {
         this.veterinaria = veterinaria;
     }
 
     public void setVeterinaria(Veterinaria veterinaria) {
         this.veterinaria = veterinaria;
     }
-
 
 
     public boolean crearConsulta(Consulta consulta) {
@@ -41,5 +39,7 @@ public class ConsultaController {
         return veterinaria.actualizarConsulta(id, consulta);
     }
 
-
+    public Veterinaria getVeterinaria() {
+        return veterinaria;
+    }
 }
