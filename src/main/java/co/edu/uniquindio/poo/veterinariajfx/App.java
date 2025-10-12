@@ -15,6 +15,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -42,11 +43,9 @@ public class App extends Application {
             loader.setLocation(App.class.getResource("crudConsulta.fxml"));
             javafx.scene.layout.AnchorPane rootLayout = loader.load();
 
-            // Controlador principal de la vista
             ConsultaViewController consultaController = loader.getController();
             consultaController.setApp(this);
 
-            // 🔹 Pásale la instancia de Veterinaria al controlador de lógica
             consultaController.getConsultaController().setVeterinaria(veterinaria);
 
             Scene scene = new Scene(rootLayout);
@@ -58,6 +57,24 @@ public class App extends Application {
         }
     }
 
+    public void openCrudReptil() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudReptil.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            ReptilViewController reptilController= loader.getController();
+            reptilController.setApp(this);
+
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 
     public void openCrudGato() {
         inicializarData();
@@ -65,8 +82,8 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudGato.fxml"));
             AnchorPane rootLayout = loader.load();
-            PerroViewController perroController = loader.getController();
-            perroController.setApp(this);
+            GatoViewController gatoController = loader.getController();
+            gatoController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -104,9 +121,9 @@ public class App extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudPropietario.fxml"));
-            AnchorPane rootLayout = loader.load();
-            PropietarioViewController propietarioViewController = loader.getController();
-            propietarioViewController.setApp(this);
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            PropietarioViewController propietarioController = loader.getController();
+            propietarioController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -117,6 +134,8 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
+
+
 
     public void openCrudAve() {
         inicializarData();
@@ -168,8 +187,8 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudMascota.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
-            MascotaViewController mascotaViewController= loader.getController();
-            mascotaViewController.setApp(this);
+            MascotaViewController mascotaController= loader.getController();
+            mascotaController.setApp(this);
 
 
             Scene scene = new Scene(rootLayout);
