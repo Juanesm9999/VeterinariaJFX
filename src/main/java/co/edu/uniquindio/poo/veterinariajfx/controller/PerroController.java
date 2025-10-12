@@ -20,7 +20,7 @@ public class PerroController {
     }
 
 
-    public static List<Mascota> obtenerListMascotas() {
+    public  List<Mascota> obtenerListaMascotas() {
         return veterinaria.getListMascotas();
     }
 

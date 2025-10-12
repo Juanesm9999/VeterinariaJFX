@@ -208,7 +208,7 @@ public class PerroViewController {
     private Perro buildPerro() {
 
 
-        Perro perro = new Perro(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), comboTamanio.get, txtNivelAdiestramiento.getText(), txtNecesidadPaseosDiarios.getText());
+        Perro perro = new Perro(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), comboTamanio.getValue(), txtNivelAdiestramiento.getText(), txtNecesidadPaseosDiarios.getText());
         return perro;
     }
 

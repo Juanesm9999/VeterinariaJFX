@@ -2,16 +2,14 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.AveController;
+import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 import java.net.URL;
@@ -20,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class AveViewController {
     AveController aveController;
-    ObservableList<Ave> listMascotas = FXCollections.observableArrayList();
+    ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
     Ave selectedAve;
 
 
@@ -36,7 +34,23 @@ public class AveViewController {
     private TextField txtNombre;
 
     @FXML
+    private TextField txtId;
+
+
+    @FXML
+    private TextField txtRaza;
+    @FXML
+    private TextField txtPeso;
+    @FXML
+    private TextField txtEdadEnMeses;
+    @FXML
     private TextField txtEspecie;
+    @FXML
+    private ComboBox txtTipoDePlumaje;
+    @FXML
+    private TextField txtisVueloCorto;
+    @FXML
+    private TextField txtCantidadDeImitaciones;
 
 
     @FXML
@@ -44,7 +58,7 @@ public class AveViewController {
 
 
     @FXML
-    private TableView<Ave> tblListMascota;
+    private TableView<Mascota> tblListMascota;
 
 
     @FXML
@@ -52,11 +66,15 @@ public class AveViewController {
 
 
     @FXML
-    private Button btnActualizarAve;
+    private Button btnActualizarPerro;
 
 
     @FXML
     private TableColumn<Ave, String> tbcNombre;
+    @FXML
+    private TableColumn<Ave, String> tbcId;
+    @FXML
+    private TableColumn<Ave, String> tbcRaza;
 
     @FXML
     private TableColumn<Ave, String> tbcPeso;
@@ -68,46 +86,19 @@ public class AveViewController {
     private TableColumn<Ave, String> tbcEspecie;
 
     @FXML
-    private TableColumn<Ave, String> tbcTipoPlumaje;
+    private TableColumn<Ave, String> tbcTipoDePlumaje;
 
     @FXML
-    private TableColumn<Ave, String> tbcIsVueloCorto;
+    private TableColumn<Ave, String> tbcisVueloCorto;
 
     @FXML
     private TableColumn<Ave, String> tbcCantidadDeImitaciones;
-
-    @FXML
-    private TextField txtRaza;
-
-    @FXML
-    private TextField txtPeso;
-
-    @FXML
-    private TextField txtEdadEnMeses;
-
-    @FXML
-    private TextField txtTipoPlumaje;
-
-    @FXML
-    private TextField txtIsVueloCorto;
-
-    @FXML
-    private TextField txtCantidadDeImitaciones;
-
-    @FXML
-    private TableColumn<Ave, String> tbcRaza;
 
 
     @FXML
     private Button btbAgregarAve;
 
 
-    @FXML
-    private TableColumn<Ave, String> tbcId;
-
-
-    @FXML
-    private TextField txtId;
     private App app;
 
 
@@ -131,7 +122,7 @@ public class AveViewController {
 
     @FXML
     void onEliminar() {
-        eliminarAve();
+        eliminarMascota();
     }
 
 
@@ -163,7 +154,7 @@ public class AveViewController {
         // Seleccionar elemento de la tabla
         listenerSelection();
     }
-// String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones
+
 
     private void initDataBinding() {
         tbcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
@@ -171,62 +162,68 @@ public class AveViewController {
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
-        tbcEspecie.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEspecie()));
-        tbcTipoPlumaje.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTIpoDePlumaje()));
-        tbcIsVueloCorto.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getIsVueloCorto()));
-        tbcCantidadDeImitaciones.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadDeImitaciones()));
+        tbcEspecie.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecie()));
+        //faltan los atributos de ave
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 
     private void obtenerAve() {
-        listMascotas.addAll(aveController.obtenerListaMascotas());
+        listMascotas.addAll(AveController.obtenerListMascotas());
     }
 
 
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            selectedAve = newSelection;
-            mostrarInformacionMascota(selectedAve);
+            selectedAve = (Ave) newSelection;
+            mostrarInformacionPerro(selectedAve);
         });
     }
 
 
-    private void mostrarInformacionMascota(Ave ave) {
+    private void mostrarInformacionPerro(Ave ave) {
         if (ave != null) {
             txtId.setText(ave.getId());
             txtNombre.setText(ave.getNombre());
             txtRaza.setText(ave.getRaza());
+            txtEspecie.setText(ave.getEspecie());
+            txtEdadEnMeses.setText(String.valueOf(ave.getEdadEnMeses()));
+            txtPeso.setText(String.valueOf(ave.getPeso()));
+            txtTipoDePlumaje.setText(ave.getTipoDePlumaje());
+            txtisVueloCorto.setValue(ave.getIsVueloCorto());
+            txtCantidadDeImitaciones.setText(ave.getCantidadDeImitaciones());
         }
     }
 
 
     private void agregarAve() {
-        Ave ave = buildAve();
-        if (aveController.crearAve(ave)) {
+        Mascota ave = buildAve();
+            if (AveController.crearAve(ave)) {
             listMascotas.add(ave);
             limpiarCamposAve();
         }
     }
 
 
-    private Ave buildAve() {
-        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoPlumaje.getText(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
+    private Ave buildPerro() {
+
+
+        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoDePlumaje.getText(), Boolean.parseBoolean(txtisVueloCorto.getText()), txtCantidadDeImitaciones.getText());
         return ave;
     }
 
 
-    private void eliminarAve() {
+    private void eliminarMascota() {
         if (aveController.eliminarAve(txtId.getText())) {
             listMascotas.remove(selectedAve);
-            limpiarCamposAve();
+            limpiarCamposPerro();
             limpiarSeleccion();
         }
     }
 
 
-    private void actualizarAve() {
+    private void actualizarPerro() {
 
 
         if (selectedAve != null &&

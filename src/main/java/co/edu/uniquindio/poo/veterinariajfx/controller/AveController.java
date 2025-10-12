@@ -19,7 +19,7 @@ public class AveController {
     }
 
 
-    public Ave obtenerListaMascotas() {
+    public Ave obtenerListMascotas() {
         return (Ave) veterinaria.getListMascotas();
     }
 

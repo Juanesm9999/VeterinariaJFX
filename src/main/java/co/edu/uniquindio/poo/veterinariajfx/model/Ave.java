@@ -1,23 +1,23 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public class Ave extends Mascota{
-    private String TIpoDePlumaje;
+    private String TipoDePlumaje;
     private Boolean isVueloCorto;
     private String CantidadDeImitaciones;
 
     public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
         super(nombre,id,raza,peso,edadEnMeses,especie);
-        this.TIpoDePlumaje = TipoDePlumaje;
+        this.TipoDePlumaje = TipoDePlumaje;
         this.isVueloCorto = isVueloCorto;
         this.CantidadDeImitaciones = CapacidadDeImitaciones;
     }
 
-    public String getTIpoDePlumaje() {
-        return TIpoDePlumaje;
+    public String getTipoDePlumaje() {
+        return TipoDePlumaje;
     }
 
-    public void setTIpoDePlumaje(String TIpoDePlumaje) {
-        this.TIpoDePlumaje = TIpoDePlumaje;
+    public void setTipoDePlumaje(String TipoDePlumaje) {
+        this.TipoDePlumaje = TipoDePlumaje;
     }
 
     public Boolean isVueloCorto() {
