@@ -13,6 +13,7 @@
       <Button fx:id="primaryButton111" layoutX="57.0" layoutY="224.0" onAction="#onOpenCrudGato" prefHeight="32.0" prefWidth="139.0" text="Gestion de Gatos" />
       <Button fx:id="primaryButton1111" layoutX="57.0" layoutY="250.0" onAction="#onOpenCrudAve" prefHeight="32.0" prefWidth="139.0" text="Gestion de Aves" />
       <Button fx:id="primaryButton11111" layoutX="57.0" layoutY="276.0" onAction="#onOpenCrudReptil" prefHeight="32.0" prefWidth="139.0" text="Gestion de Reptiles" />
+      <Button mnemonicParsing="false" text="Ranking de Propietarios" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
