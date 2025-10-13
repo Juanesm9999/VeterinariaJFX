@@ -9,7 +9,7 @@ public class PropietarioController {
     Veterinaria veterinaria;
 
 
-    public PropietarioController(Veterinaria propietario) {
+    public PropietarioController(Veterinaria veterinaria) {
         this.veterinaria = veterinaria;
     }
 
@@ -34,5 +34,6 @@ public class PropietarioController {
     }
 
 
-
+    public void setVeterinaria(Veterinaria veterinaria) {
+    }
 }

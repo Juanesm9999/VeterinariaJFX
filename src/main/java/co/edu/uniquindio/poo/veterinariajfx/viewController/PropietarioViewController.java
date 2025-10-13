@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
+import co.edu.uniquindio.poo.veterinariajfx.controller.ConsultaController;
 import co.edu.uniquindio.poo.veterinariajfx.controller.PropietarioController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Propietario;
@@ -28,10 +29,8 @@ public class PropietarioViewController {
     @FXML
     private ResourceBundle resources;
 
-
     @FXML
     private URL location;
-
 
     @FXML
     private TextField txtNombre;
@@ -39,22 +38,17 @@ public class PropietarioViewController {
     @FXML
     private TextField txtDireccion;
 
-
     @FXML
     private Button btnLimpiar;
-
 
     @FXML
     private TableView<Propietario> tblListPropietarios;
 
-
     @FXML
     private Button btnEliminar;
 
-
     @FXML
     private Button btnActualizarPropietario;
-
 
     @FXML
     private TableColumn<Propietario, String> tbcNombre;
@@ -69,7 +63,7 @@ public class PropietarioViewController {
     private TextField txtPuntajeFidelidad;
 
     @FXML
-    private Button btbAgregarMascota;
+    private Button btbAgregarPropietario;
 
     @FXML
     private TableColumn<Propietario, String> tbcId;
@@ -228,5 +222,10 @@ public class PropietarioViewController {
 
     public void setApp(App app) {
         this.app = app;
+    }
+
+    public PropietarioController getPropietarioController() {
+
+        return null;
     }
 }

@@ -35,17 +35,17 @@ public class PrimaryViewController {
 
     @FXML
     void onOpenCrudGato() {
-        app.openCrudConsulta();
+        app.openCrudGato();
     }
 
     @FXML
     void onOpenCrudReptil() {
-        app.openCrudConsulta();
+        app.openCrudReptil();
     }
 
     @FXML
     void onOpenCrudPropietario() {
-        app.openCrudConsulta();
+        app.openCrudPropietario();
     }
 
     @FXML

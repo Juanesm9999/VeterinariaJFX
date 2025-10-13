@@ -172,7 +172,7 @@ public class GatoViewController {
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
-        tbcEspecie.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEspecie()));
+        tbcEspecie.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecie()));
         tbcIsIndoor.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getIsIndoor()));
         tbcCantidadHorasSuenio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadHorasSuenio()));
         tbcNivelIndependencia.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivelIndependencia()));
