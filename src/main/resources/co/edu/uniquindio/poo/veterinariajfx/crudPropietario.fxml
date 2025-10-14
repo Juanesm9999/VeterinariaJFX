@@ -49,6 +49,7 @@
                         </Pane>
                         <Button fx:id="btbAgregarPropietario" layoutX="108.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAgregarPropietario" text="Agregar Propietario" />
                         <Button fx:id="btnActualizarPropietario" layoutX="312.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActualizarPropietario" text="Actualizar Propietario" />
+                        <Button fx:id="btnregresarMenu" layoutX="433.0" layoutY="157.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="542.0">

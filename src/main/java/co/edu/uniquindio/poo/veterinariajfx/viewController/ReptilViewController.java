@@ -31,9 +31,9 @@ public class ReptilViewController implements Initializable {
         // Opcional: Establecer un valor por defecto al iniciar
         comboHabitat.getSelectionModel().select(Habitat.MIXTO);
 
-        comboHabitat.setItems(FXCollections.observableArrayList(NivelPeligrosidad.values()));
+        comboHabitat.setItems(FXCollections.observableArrayList(Habitat.values()));
 
-        comboHabitat.getSelectionModel().select(NivelPeligrosidad.MEDIO);
+        comboHabitat.getSelectionModel().select(Habitat.ACUATICO);
 
         // --------------------------------------------------
     }
@@ -122,6 +122,14 @@ public class ReptilViewController implements Initializable {
 
     @FXML
     private TextField txtId;
+
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
 
     private App app;
 

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.GatoViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.GatoViewController">
     <children>
         <SplitPane dividerPositions="0.5994358251057827" layoutX="7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="803.0">
             <items>
@@ -34,15 +28,13 @@
                                 <TextField fx:id="txtEspecie" layoutX="341.0" layoutY="176.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtRaza" layoutX="341.0" layoutY="209.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtCantidadHorasSuenio" layoutX="341.0" layoutY="271.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtIsIndoor" layoutX="341.0" layoutY="303.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtNivelIndependencia" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="194.0" />
                             </children>
                         </Pane>
                         <Button fx:id="btbAgregarGato" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarGato" text="Agregar Gato" />
                         <Button fx:id="btnActualizarGato" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarGato" text="Actualizar Gato" />
                         <Button layoutX="660.0" layoutY="130.0" mnemonicParsing="false" text="Estimar Dosis" />
                         <Button layoutX="642.0" layoutY="189.0" mnemonicParsing="false" text="Proxima Vacunacion" />
-                        <Button layoutX="650.0" layoutY="245.0" mnemonicParsing="false" text="Regresar al menu" />
+                        <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                         <Label layoutX="60.0" layoutY="321.0" text="Nivel de Independencia:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
@@ -90,6 +82,9 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
+                  <RadioButton fx:id="rbIsIndoorSi" layoutX="373.0" layoutY="262.0" mnemonicParsing="false" text="Si" />
+                  <RadioButton fx:id="rbIsIndoorNo" layoutX="432.0" layoutY="263.0" mnemonicParsing="false" text="No" />
+                          <TextField fx:id="txtNivelIndependencia" layoutX="373.0" layoutY="322.0" prefHeight="25.0" prefWidth="194.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="573.0">

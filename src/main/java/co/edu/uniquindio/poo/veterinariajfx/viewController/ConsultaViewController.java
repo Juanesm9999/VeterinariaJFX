@@ -9,20 +9,35 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-
-import javax.swing.*;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class ConsultaViewController {
+public class ConsultaViewController implements Initializable {
     ConsultaController consultaController;
     ObservableList<Consulta> listConsultas = FXCollections.observableArrayList();
     Consulta selectedConsulta;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
+
+        comboTipoConsulta.setItems(FXCollections.observableArrayList(TipoConsulta.values()));
+
+        // Opcional: Establecer un valor por defecto al iniciar
+        comboTipoConsulta.getSelectionModel().select(TipoConsulta.CONTROL_RUTINARIO);
+
+        comboTipoConsulta.setItems(FXCollections.observableArrayList(TipoConsulta.values()));
+
+        comboTipoConsulta.getSelectionModel().select(TipoConsulta.CONSULTA);
+
+        // --------------------------------------------------
+    }
 
 
     @FXML
@@ -82,6 +97,14 @@ public class ConsultaViewController {
 
     @FXML
     private Button btbAgregarConsulta;
+
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
 
 
     private App app;
@@ -240,4 +263,10 @@ public class ConsultaViewController {
     public ConsultaController getConsultaController() {
         return consultaController;
     }
+
+    public void setConsultaController(ConsultaController consultaController) {
+        this.consultaController = consultaController;
+    }
+
+
 }

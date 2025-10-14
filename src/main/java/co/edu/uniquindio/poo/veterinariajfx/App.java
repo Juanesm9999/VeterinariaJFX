@@ -13,6 +13,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import co.edu.uniquindio.poo.veterinariajfx.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -157,7 +158,7 @@ public class App extends Application {
     }
 
 
-    private void openViewPrincipal() {
+    public void openViewPrincipal() {
         inicializarData();
         try {
             FXMLLoader loader = new FXMLLoader();

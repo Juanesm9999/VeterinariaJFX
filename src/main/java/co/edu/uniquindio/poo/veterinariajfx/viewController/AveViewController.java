@@ -98,6 +98,14 @@ public class AveViewController {
     @FXML
     private Button btbAgregarAve;
 
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
+
 
     private App app;
 

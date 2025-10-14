@@ -41,7 +41,7 @@
                         <Button fx:id="btnActualizarReptil" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarReptil" text="Actualizar Reptil" />
                         <Button layoutX="660.0" layoutY="130.0" mnemonicParsing="false" text="Estimar Dosis" />
                         <Button layoutX="642.0" layoutY="189.0" mnemonicParsing="false" text="Proxima Vacunacion" />
-                        <Button layoutX="650.0" layoutY="245.0" mnemonicParsing="false" text="Regresar al menu" />
+                        <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                         <Label layoutX="60.0" layoutY="293.0" text="Temperatura Optima:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />

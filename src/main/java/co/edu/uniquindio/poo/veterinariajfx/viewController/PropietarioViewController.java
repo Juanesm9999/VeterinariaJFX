@@ -71,6 +71,14 @@ public class PropietarioViewController {
     @FXML
     private TextField txtId;
 
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
+
     private App app;
 
 

@@ -122,6 +122,14 @@ public class PerroViewController implements Initializable {
 
     @FXML
     private Button btbFechaVacunacion;
+
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
     
     private App app;
 

@@ -7,11 +7,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 import java.net.URL;
@@ -86,7 +84,10 @@ public class GatoViewController {
     private TextField txtEdadEnMeses;
 
     @FXML
-    private TextField txtIsIndoor;
+    private RadioButton rbIsIndoorSi;
+
+    @FXML
+    private RadioButton rbIsIndoorNo;
 
     @FXML
     private TextField txtCantidadHorasSuenio;
@@ -108,6 +109,16 @@ public class GatoViewController {
 
     @FXML
     private TextField txtId;
+
+    @FXML
+    private Button btnRegresarMenu;
+
+    @FXML
+    void onRegresarMenu() {
+        app.openViewPrincipal();
+    }
+
+    private ToggleGroup toggleGroupIsIndoor;
 
     private App app;
 
@@ -140,6 +151,10 @@ public class GatoViewController {
     void initialize() {
         this.app = app;
         gatoController = new GatoController(app.veterinaria);
+
+        toggleGroupIsIndoor = new ToggleGroup();
+        rbIsIndoorSi.setToggleGroup(toggleGroupIsIndoor);
+        rbIsIndoorNo.setToggleGroup(toggleGroupIsIndoor);
         initView();
     }
 
@@ -203,7 +218,11 @@ public class GatoViewController {
             txtEspecie.setText(gato.getEspecie());
             txtPeso.setText(String.valueOf(gato.getPeso()));
             txtEdadEnMeses.setText(String.valueOf(gato.getEdadEnMeses()));
-            txtIsIndoor.setText(String.valueOf(gato.getIsIndoor()));
+            if (gato.getIsIndoor()) {
+                rbIsIndoorSi.setSelected(true);
+            } else {
+                rbIsIndoorNo.setSelected(false);
+            }
             txtCantidadHorasSuenio.setText(String.valueOf(gato.getCantidadHorasSuenio()));
         }
     }
@@ -219,7 +238,8 @@ public class GatoViewController {
 
 
     private Gato buildGato() {
-        Gato gato = new Gato(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), Boolean.parseBoolean(txtIsIndoor.getText()), txtCantidadHorasSuenio.getText(), txtNivelIndependencia.getText());
+        boolean isIndoor = rbIsIndoorSi.isSelected();
+        Gato gato = new Gato(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), isIndoor, txtCantidadHorasSuenio.getText(), txtNivelIndependencia.getText());
         return gato;
     }
 
@@ -265,7 +285,7 @@ public class GatoViewController {
         txtRaza.clear();
         txtPeso.clear();
         txtEdadEnMeses.clear();
-        txtIsIndoor.clear();
+        toggleGroupIsIndoor.selectToggle(null);
         txtCantidadHorasSuenio.clear();
         txtNivelIndependencia.clear();
         txtEspecie.clear();
