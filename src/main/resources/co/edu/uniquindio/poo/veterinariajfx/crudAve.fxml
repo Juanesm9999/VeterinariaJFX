@@ -96,9 +96,9 @@
                                 <TableColumn fx:id="tbcNombre" prefWidth="84.0" text="Nombre" />
                                 <TableColumn fx:id="tbcEspecie" prefWidth="75.0" text="Especie" />
                                 <TableColumn fx:id="tbcRaza" prefWidth="41.0" text="Raza" />
-                                <TableColumn fx:id="tbc" prefWidth="61.0" text="Tipo de plumaje" />
-                                <TableColumn fx:id="tbcCantidadHorasSuenio" prefWidth="134.0" text="Tiene vuelo corto" />
-                                <TableColumn fx:id="tbcNecesidadPaseosDiarios" prefWidth="186.0" text="Cantidad de imitaciones" />
+                                <TableColumn fx:id="tbcTipoDePlumaje" prefWidth="61.0" text="Tipo de plumaje" />
+                                <TableColumn fx:id="tbcIsVueloCorto" prefWidth="134.0" text="Tiene vuelo corto" />
+                                <TableColumn fx:id="tbcCantidadDeImitaciones" prefWidth="186.0" text="Cantidad de imitaciones" />
 
                             </columns>
                         </TableView>

@@ -142,7 +142,7 @@ public class App extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudAve.fxml"));
-            javafx.scene.layout.VBox rootLayout = (javafx.scene.layout.VBox) loader.load();
+            AnchorPane rootLayout = (AnchorPane) loader.load();
             AveViewController aveController = loader.getController();
             aveController.setApp(this);
 

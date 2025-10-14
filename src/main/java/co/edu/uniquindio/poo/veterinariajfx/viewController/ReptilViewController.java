@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.ReptilController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Habitat;
+import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.NivelPeligrosidad;
 import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
 import javafx.beans.property.SimpleObjectProperty;
@@ -19,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class ReptilViewController {
     ReptilController reptilController;
-    ObservableList<Reptil> listMascotas = FXCollections.observableArrayList();
-    Reptil selectedReptil;
+    ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
+    Mascota selectedReptil;
 
 
     @FXML
@@ -43,7 +44,7 @@ public class ReptilViewController {
 
 
     @FXML
-    private TableView<Reptil> tblListMascota;
+    private TableView<Mascota> tblListMascota;
 
 
     @FXML
@@ -98,7 +99,7 @@ public class ReptilViewController {
 
 
     @FXML
-    private Button btbAgregarGato;
+    private Button btbAgregarReptil;
 
 
     @FXML
@@ -179,16 +180,15 @@ public class ReptilViewController {
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
-
     private void obtenerReptil() {
-        listMascotas.addAll((Reptil) reptilController.obtenerListaMascotas());
+        listMascotas.addAll(reptilController.obtenerListaMascotas());
     }
 
 
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedReptil = newSelection;
-            mostrarInformacionReptil(selectedReptil);
+            mostrarInformacionReptil((Reptil) selectedReptil);
         });
     }
 

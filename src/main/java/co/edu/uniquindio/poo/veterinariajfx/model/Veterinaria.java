@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -368,6 +367,8 @@ public class Veterinaria {
         return listMascotas;
     }
 
+
+
     public void setListMascotas(List<Mascota> listMascotas) {
         this.listMascotas = listMascotas;
     }
@@ -473,6 +474,7 @@ public class Veterinaria {
     public void setListPropietarios(List<Propietario> listPropietarios) {
         this.listPropietarios = listPropietarios;
     }
+
 
     @Override
     public String toString() {

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.PerroViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.ReptilViewController">
     <children>
         <SplitPane dividerPositions="0.5994358251057827" layoutX="7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="803.0">
             <items>
@@ -27,18 +27,18 @@
                                 <TextField fx:id="txtNombre" layoutX="341.0" layoutY="143.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtEspecie" layoutX="341.0" layoutY="176.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtRaza" layoutX="341.0" layoutY="209.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtNivelAdiestramiento" layoutX="341.0" layoutY="271.0" prefHeight="25.0" prefWidth="194.0" />
-                                <ComboBox fx:id="txtTamanio" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="194.0" />
-                        <ComboBox fx:id="txtTamanio1" layoutX="343.0" layoutY="305.0" prefHeight="25.0" prefWidth="194.0" />
-                              <Label layoutX="25.0" layoutY="304.0" text="Nivel de Peligrosidad:" textAlignment="RIGHT">
+                                <TextField fx:id="txtTemperaturaOptima" layoutX="341.0" layoutY="271.0" prefHeight="25.0" prefWidth="194.0" />
+                                <ComboBox fx:id="comboHabitat" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="194.0" />
+                        <ComboBox fx:id="comboNivelPeligrosidad" layoutX="343.0" layoutY="305.0" prefHeight="25.0" prefWidth="194.0" />
+                              <Label layoutX="28.0" layoutY="310.0" text="Nivel de Peligrosidad:" textAlignment="RIGHT">
                                   <font>
                                       <Font size="18.0" />
                                   </font>
                               </Label>
                             </children>
                         </Pane>
-                        <Button fx:id="btbAgregarPerro" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarPerro" text="Agregar Mascota" />
-                        <Button fx:id="btnActualizarPerro" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarPerro" text="Actualizar mascota" />
+                        <Button fx:id="btbAgregarReptil" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarReptil" text="Agregar Reptil" />
+                        <Button fx:id="btnActualizarReptil" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarReptil" text="Actualizar Reptil" />
                         <Button layoutX="660.0" layoutY="130.0" mnemonicParsing="false" text="Estimar Dosis" />
                         <Button layoutX="642.0" layoutY="189.0" mnemonicParsing="false" text="Proxima Vacunacion" />
                         <Button layoutX="650.0" layoutY="245.0" mnemonicParsing="false" text="Regresar al menu" />
@@ -96,9 +96,9 @@
                                 <TableColumn fx:id="tbcNombre" prefWidth="84.0" text="Nombre" />
                                 <TableColumn fx:id="tbcEspecie" prefWidth="75.0" text="Especie" />
                                 <TableColumn fx:id="tbcRaza" prefWidth="41.0" text="Raza" />
-                                <TableColumn fx:id="tbcIsIndoor" prefWidth="61.0" text="Habitat" />
-                                <TableColumn fx:id="tbcCantidadHorasSuenio" prefWidth="134.0" text="Temperatura Optima" />
-                                <TableColumn fx:id="tbcNecesidadPaseosDiarios" prefWidth="186.0" text="Nivel de Peligrosidad" />
+                                <TableColumn fx:id="tbcHabitat" prefWidth="61.0" text="Habitat" />
+                                <TableColumn fx:id="tbcTemperaturaOptima" prefWidth="134.0" text="Temperatura Optima" />
+                                <TableColumn fx:id="tbcNivelPeligrosidad" prefWidth="186.0" text="Nivel de Peligrosidad" />
 
                             </columns>
                         </TableView>

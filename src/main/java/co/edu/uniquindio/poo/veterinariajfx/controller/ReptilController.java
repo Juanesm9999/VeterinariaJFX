@@ -4,10 +4,11 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
+import java.util.Collection;
 import java.util.List;
 
 public class ReptilController {
-    Veterinaria veterinaria;
+    static Veterinaria veterinaria;
 
 
     public ReptilController(Veterinaria veterinaria) {
@@ -20,9 +21,14 @@ public class ReptilController {
     }
 
 
-    public List<Mascota> obtenerListaMascotas() {
-        return veterinaria.getListMascotas();
+    public List<Reptil> obtenerListaMascotas() {
+        return veterinaria.getListMascotas()
+                .stream()
+                .filter(m -> m instanceof Reptil)
+                .map(m -> (Reptil) m)
+                .toList();
     }
+
 
 
     public boolean eliminarReptil(String id) {
@@ -33,7 +39,6 @@ public class ReptilController {
     public boolean actualizarReptil(String id, Mascota reptil) {
         return veterinaria.actualizarReptil(id, reptil);
     }
-
 
 
 }

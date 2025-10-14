@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.veterinariajfx.model.Gato;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
+import java.util.Collection;
 import java.util.List;
 
 public class GatoController {
@@ -20,15 +21,13 @@ public class GatoController {
         return veterinaria.agregarGato(gato);
     }
 
-    public Gato obtenerListaMascotas() {
-        List<Mascota> listaGatos = veterinaria.getListMascotas();
-        return null;
+    public Collection<? extends Gato> obtenerListaMascotas() {
+        return veterinaria.getListMascotas()
+                .stream()
+                .filter(m -> m instanceof Gato)
+                .map(m -> (Gato) m)
+                .toList();
     }
-
-
-    /*public Gato obtenerListaMascotas() {
-        return (Gato) FXCollections.observableArrayList(veterinaria.getListMascotas());
-    }*/
 
 
     public boolean eliminarGato(String id) {
