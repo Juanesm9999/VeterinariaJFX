@@ -7,22 +7,13 @@
 <VBox alignment="CENTER" prefHeight="319.0" prefWidth="233.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.PrimaryViewController">
     <children>
         <Label text="Bienvenidos a Vida Animal" />
-<<<<<<< HEAD
         <Button fx:id="primaryButton" onAction="#onOpenCrudPerro" prefHeight="32.0" prefWidth="139.0" text="Gestión de Perros" />
-      <Button fx:id="primaryButton1" layoutX="45.0" layoutY="76.0" onAction="#onOpenCrudConsulta" prefHeight="32.0" prefWidth="139.0" text="Gestión de Consultas" />
-      <Button fx:id="primaryButton11" layoutX="57.0" layoutY="198.0" onAction="#onOpenCrudPropietario" prefHeight="32.0" prefWidth="139.0" text="Gestion de Propietarios" />
-      <Button fx:id="primaryButton111" layoutX="57.0" layoutY="224.0" onAction="#onOpenCrudGato" prefHeight="32.0" prefWidth="139.0" text="Gestion de Gatos" />
-      <Button fx:id="primaryButton1111" layoutX="57.0" layoutY="250.0" onAction="#onOpenCrudAve" prefHeight="32.0" prefWidth="139.0" text="Gestion de Aves" />
-      <Button fx:id="primaryButton11111" layoutX="57.0" layoutY="276.0" onAction="#onOpenCrudReptil" prefHeight="32.0" prefWidth="139.0" text="Gestion de Reptiles" />
-      <Button mnemonicParsing="false" text="Ranking de Propietarios" />
-=======
-        <Button fx:id="btnGestionPerro" onAction="#onOpenCrudPerro" prefHeight="32.0" prefWidth="139.0" text="Gestión de Perros" />
-      <Button fx:id="btnGestionConsulta" layoutX="45.0" layoutY="76.0" onAction="#onOpenCrudConsulta" prefHeight="32.0" prefWidth="139.0" text="Gestión de Consultas" />
-      <Button fx:id="btnGestionPropietario" layoutX="57.0" layoutY="198.0" onAction="#onOpenCrudPropietario" prefHeight="32.0" prefWidth="139.0" text="Gestion de Propietarios" />
-      <Button fx:id="btnGestionGato" layoutX="57.0" layoutY="224.0" onAction="#onOpenCrudGato" prefHeight="32.0" prefWidth="139.0" text="Gestion de Gatos" />
-      <Button fx:id="btnGestionAve" layoutX="57.0" layoutY="250.0" onAction="#onOpenCrudAve" prefHeight="32.0" prefWidth="139.0" text="Gestion de Aves" />
-      <Button fx:id="btnGestionReptil" layoutX="57.0" layoutY="276.0" onAction="#onOpenCrudReptil" prefHeight="32.0" prefWidth="139.0" text="Gestion de Reptiles" />
->>>>>>> 2abca850d74321aafba0cdf038a84c4dd29c9b8d
+        <Button fx:id="primaryButton1" layoutX="45.0" layoutY="76.0" onAction="#onOpenCrudConsulta" prefHeight="32.0" prefWidth="139.0" text="Gestión de Consultas" />
+        <Button fx:id="primaryButton11" layoutX="57.0" layoutY="198.0" onAction="#onOpenCrudPropietario" prefHeight="32.0" prefWidth="139.0" text="Gestion de Propietarios" />
+        <Button fx:id="primaryButton111" layoutX="57.0" layoutY="224.0" onAction="#onOpenCrudGato" prefHeight="32.0" prefWidth="139.0" text="Gestion de Gatos" />
+        <Button fx:id="primaryButton1111" layoutX="57.0" layoutY="250.0" onAction="#onOpenCrudAve" prefHeight="32.0" prefWidth="139.0" text="Gestion de Aves" />
+        <Button fx:id="primaryButton11111" layoutX="57.0" layoutY="276.0" onAction="#onOpenCrudReptil" prefHeight="32.0" prefWidth="139.0" text="Gestion de Reptiles" />
+        <Button mnemonicParsing="false" text="Ranking de Propietarios" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
