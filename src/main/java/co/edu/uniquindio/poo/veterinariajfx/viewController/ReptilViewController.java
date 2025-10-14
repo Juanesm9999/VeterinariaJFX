@@ -2,15 +2,13 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.ReptilController;
-import co.edu.uniquindio.poo.veterinariajfx.model.Habitat;
-import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
-import co.edu.uniquindio.poo.veterinariajfx.model.NivelPeligrosidad;
-import co.edu.uniquindio.poo.veterinariajfx.model.Reptil;
+import co.edu.uniquindio.poo.veterinariajfx.model.*;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 
@@ -18,11 +16,27 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ReptilViewController {
+public class ReptilViewController implements Initializable {
     ReptilController reptilController;
     ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
     Mascota selectedReptil;
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
+
+        comboHabitat.setItems(FXCollections.observableArrayList(Habitat.values()));
+
+        // Opcional: Establecer un valor por defecto al iniciar
+        comboHabitat.getSelectionModel().select(Habitat.MIXTO);
+
+        comboHabitat.setItems(FXCollections.observableArrayList(NivelPeligrosidad.values()));
+
+        comboHabitat.getSelectionModel().select(NivelPeligrosidad.MEDIO);
+
+        // --------------------------------------------------
+    }
 
     @FXML
     private ResourceBundle resources;

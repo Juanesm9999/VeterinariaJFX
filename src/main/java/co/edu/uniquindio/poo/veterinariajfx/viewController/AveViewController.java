@@ -4,6 +4,7 @@ import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.AveController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
+import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,7 +21,6 @@ public class AveViewController {
     AveController aveController;
     ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
     Ave selectedAve;
-
 
     @FXML
     private ResourceBundle resources;
@@ -46,7 +46,7 @@ public class AveViewController {
     @FXML
     private TextField txtEspecie;
     @FXML
-    private ComboBox comboTipoDePlumaje;
+    private TextField txtTipoDePlumaje;
     @FXML
     private TextField txtIsVueloCorto;
     @FXML
@@ -195,7 +195,7 @@ public class AveViewController {
             txtEspecie.setText(ave.getEspecie());
             txtEdadEnMeses.setText(String.valueOf(ave.getEdadEnMeses()));
             txtPeso.setText(String.valueOf(ave.getPeso()));
-            comboTipoDePlumaje.setValue(ave.getTipoDePlumaje());
+            txtTipoDePlumaje.setText(ave.getTipoDePlumaje());
             txtIsVueloCorto.setText(ave.getIsVueloCorto());
             txtCantidadDeImitaciones.setText(ave.getCantidadDeImitaciones());
         }
@@ -214,7 +214,7 @@ public class AveViewController {
     private Ave buildAve() {
 
 
-        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), (String) comboTipoDePlumaje.getValue(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
+        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoDePlumaje.getText(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
         return ave;
     }
 
@@ -262,7 +262,7 @@ public class AveViewController {
         txtEspecie.clear();
         txtEdadEnMeses.clear();
         txtPeso.clear();
-        comboTipoDePlumaje.getSelectionModel().clearSelection();
+        txtTipoDePlumaje.clear();
         txtIsVueloCorto.clear();
         txtCantidadDeImitaciones.clear();
     }

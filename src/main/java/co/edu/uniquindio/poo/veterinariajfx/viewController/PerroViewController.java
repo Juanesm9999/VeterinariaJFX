@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
 
 import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.PerroController;
+import co.edu.uniquindio.poo.veterinariajfx.controller.SugerenciaVacunacionController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
@@ -10,17 +11,37 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class PerroViewController {
+public class PerroViewController implements Initializable {
     PerroController perroController;
     ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
     Perro selectedPerro;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
+
+        // Paso 3: Obtener todos los valores del Enum y ponerlos en el ComboBox
+        comboTamanio.setItems(FXCollections.observableArrayList(Tamanio.values()));
+
+        // Opcional: Establecer un valor por defecto al iniciar
+        comboTamanio.getSelectionModel().select(Tamanio.MEDIANO);
+
+        // --------------------------------------------------
+    }
 
 
     @FXML
@@ -99,6 +120,8 @@ public class PerroViewController {
     @FXML
     private Button btbAgregarPerro;
 
+    @FXML
+    private Button btbFechaVacunacion;
     
     private App app;
 
@@ -120,6 +143,40 @@ public class PerroViewController {
         limpiarSeleccion();
     }
 
+    @FXML
+    void onProximaVacunacion() {
+        abrirVentanaSugerenciaVacunacion();
+    }
+    private void abrirVentanaSugerenciaVacunacion() {
+        try {
+            // Cargar el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
+            Parent root = loader.load();
+
+            // Crear nueva ventana (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Sugerencia de Vacunación");
+            stage.setScene(new Scene(root));
+
+            // Hacer la ventana modal (bloquea la ventana anterior)
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+            // Mostrar la ventana
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo abrir la ventana de sugerencia de vacunación: " + e.getMessage());
+        }
+    }
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+    @FXML private Button btbRegresarAlMenu;
 
     @FXML
     void onEliminar() {

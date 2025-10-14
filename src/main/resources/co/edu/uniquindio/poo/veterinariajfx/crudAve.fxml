@@ -29,7 +29,7 @@
                                 <TextField fx:id="txtRaza" layoutX="341.0" layoutY="209.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtIsVueloCorto" layoutX="341.0" layoutY="271.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtCantidadDeImitaciones" layoutX="341.0" layoutY="303.0" prefHeight="25.0" prefWidth="194.0" />
-                                <ComboBox fx:id="comboTipoDePlumaje" layoutX="343.0" layoutY="239.0" prefHeight="25.0" prefWidth="194.0" />
+                        <TextField fx:id="txtTipoDePlumaje" layoutX="341.0" layoutY="242.0" prefHeight="25.0" prefWidth="194.0" />
                             </children>
                         </Pane>
                         <Button fx:id="btbAgregarAve" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarAve" text="Agregar Mascota" />

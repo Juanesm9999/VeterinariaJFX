@@ -3,6 +3,7 @@ module co.edu.uniquindio.poo.veterinariajfx {
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
+    requires co.edu.uniquindio.poo.veterinariajfx;
 
 
     opens co.edu.uniquindio.poo.veterinariajfx to javafx.fxml;
