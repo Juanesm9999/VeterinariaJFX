@@ -26,11 +26,9 @@ public class ConsultaViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         consultaController = new ConsultaController();
-        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
         comboTipoConsulta.setItems(FXCollections.observableArrayList(TipoConsulta.values()));
 
-        // Opcional: Establecer un valor por defecto al iniciar
         comboTipoConsulta.getSelectionModel().select(TipoConsulta.CONTROL_RUTINARIO);
 
         comboTipoConsulta.setItems(FXCollections.observableArrayList(TipoConsulta.values()));
@@ -40,7 +38,6 @@ public class ConsultaViewController implements Initializable {
         this.app = app;
         consultaController = new ConsultaController(app.veterinaria);
         initView();
-        // --------------------------------------------------
     }
 
 

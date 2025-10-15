@@ -29,40 +29,32 @@ public class SugerenciaVacunacionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
         comboEspecie.setItems(FXCollections.observableArrayList(Especie.values()));
 
-        // Opcional: Establecer un valor por defecto al iniciar
         comboEspecie.getSelectionModel().select(Especie.GATO);
 
         comboEspecie.setItems(FXCollections.observableArrayList(Especie.values()));
 
         comboEspecie.getSelectionModel().select(Especie.PERRO);
 
-        // --------------------------------------------------
     }
 
-    // Método para consultar la vacunación
     @FXML
     private void consultarVacunacion() {
         String especieSeleccionada = String.valueOf(comboEspecie.getValue());
 
-        // Validar que se haya seleccionado una especie
         if (especieSeleccionada == null || especieSeleccionada.isEmpty()) {
             mostrarAlerta("Error", "Por favor seleccione una especie", Alert.AlertType.WARNING);
             return;
         }
 
-        // Llamar al método de sugerencia de vacunación
         String resultado = sugerirProximaVacunacion(especieSeleccionada);
 
-        // Mostrar el resultado
         lblResultado.setText(resultado);
         vboxResultado.setVisible(true);
     }
 
-    // Método que contiene la lógica de vacunación
     public String sugerirProximaVacunacion(String especie) {
         String fechaVacunacion = "";
 

@@ -127,23 +127,18 @@ public class MascotaViewController {
 
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerMascota();
 
 
-        // Limpiar la tabla
         tblListMascota.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListMascota.setItems(listMascotas);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
 
@@ -156,7 +151,6 @@ public class MascotaViewController {
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
         tbcEspecie.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEspecie()));
 
-        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 

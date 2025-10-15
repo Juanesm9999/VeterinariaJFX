@@ -6,5 +6,4 @@ package co.edu.uniquindio.poo.veterinariajfx.viewController;
  * Este archivo se mantiene para cumplir con la estructura del proyecto.
  */
 public class SugerenciaVacunacionViewController {
-    // La funcionalidad está implementada en el controller correspondiente
 }

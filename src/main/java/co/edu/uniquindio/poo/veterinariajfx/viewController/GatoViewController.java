@@ -141,7 +141,6 @@ public class GatoViewController {
             EstimarDosisViewController controller = loader.getController();
             controller.setApp(app);
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Estimación de Dosis");
             Scene scene = new Scene(rootLayout);
@@ -159,19 +158,15 @@ public class GatoViewController {
     }
     private void abrirVentanaSugerenciaVacunacion() {
         try {
-            // Cargar el archivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
             Parent root = loader.load();
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Sugerencia de Vacunación");
             stage.setScene(new Scene(root));
 
-            // Hacer la ventana modal (bloquea la ventana anterior)
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
-            // Mostrar la ventana
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -232,26 +227,20 @@ public class GatoViewController {
 
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerGato();
 
 
-        // Limpiar la tabla
         tblListMascota.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListMascota.setItems(listMascotas);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
-// String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones
 
     private void initDataBinding() {
         tbcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
@@ -264,7 +253,6 @@ public class GatoViewController {
         tbcCantidadHorasSuenio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadHorasSuenio()));
         tbcNivelIndependencia.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivelIndependencia()));
 
-        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 

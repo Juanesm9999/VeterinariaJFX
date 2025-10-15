@@ -81,22 +81,16 @@ public class RankingPropietariosViewController {
 
     @FXML
     void initialize() {
-        // NO inicializar aquí porque app es null
-        // Solo configurar las columnas
         initDataBinding();
     }
 
     private void initView() {
-        // Configurar las columnas de la tabla
         initDataBinding();
 
-        // Cargar el ranking
         cargarRanking();
 
-        // Limpiar la tabla
         tblRanking.getItems().clear();
 
-        // Agregar los elementos a la tabla
         tblRanking.setItems(listaPropietarios);
     }
 
@@ -118,13 +112,10 @@ public class RankingPropietariosViewController {
     }
 
     private void cargarRanking() {
-        // Limpiar la lista
         listaPropietarios.clear();
 
-        // Obtener el ranking usando el controlador
         List<Propietario> ranking = rankingController.obtenerRanking();
 
-        // Convertir a PropietarioRanking y agregar posición
         int posicion = 1;
         double totalVisitas = 0;
 
@@ -141,10 +132,8 @@ public class RankingPropietariosViewController {
             posicion++;
         }
 
-        // Actualizar la tabla
         tblRanking.setItems(listaPropietarios);
 
-        // Actualizar estadísticas
         lblTotalPropietarios.setText("Total de propietarios: " + ranking.size());
         lblTotalVisitas.setText("Total de visitas: " + (int)totalVisitas);
     }
@@ -155,12 +144,10 @@ public class RankingPropietariosViewController {
 
     public void setApp(App app) {
         this.app = app;
-        // AHORA SÍ inicializar todo después de tener app
         rankingController = new RankingPropietariosController(app.veterinaria);
         initView();
     }
 
-    // Clase interna para representar un propietario en el ranking
     public static class PropietarioRanking {
         private int posicion;
         private String nombre;

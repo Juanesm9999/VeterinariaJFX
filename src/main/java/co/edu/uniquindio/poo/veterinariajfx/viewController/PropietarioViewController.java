@@ -108,8 +108,6 @@ public class PropietarioViewController {
 
     @FXML
     void initialize() {
-        // NO inicializar aquí porque app es null todavía
-        // Solo se debe hacer después de setApp()
     }
 
     public void setApp(App app) {
@@ -120,23 +118,18 @@ public class PropietarioViewController {
 
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerPropietario();
 
 
-        // Limpiar la tabla
         tblListPropietarios.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListPropietarios.setItems(listPropietarios);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
 
@@ -148,7 +141,6 @@ public class PropietarioViewController {
         tbcPuntajeFidelidad.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPuntajeFidelidad()));
 
 
-        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 
@@ -187,10 +179,10 @@ public class PropietarioViewController {
     private Propietario buildPropietario() {
 
         Propietario propietario = new Propietario(
-                txtNombre.getText(),           // nombre (primer parámetro)
-                txtId.getText(),                // id (segundo parámetro)
-                txtDireccion.getText(),         // direccion (tercer parámetro)
-                Double.parseDouble(txtPuntajeFidelidad.getText())  // puntajeFidelidad (cuarto parámetro)
+                txtNombre.getText(),
+                txtId.getText(),
+                txtDireccion.getText(),
+                Double.parseDouble(txtPuntajeFidelidad.getText())
         );
         return propietario;
     }

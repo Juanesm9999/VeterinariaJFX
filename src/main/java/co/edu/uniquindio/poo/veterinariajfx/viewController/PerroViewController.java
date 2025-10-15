@@ -38,12 +38,9 @@ public class PerroViewController implements Initializable {
 
         perroController = new PerroController(veterinaria);
 
-        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
-        // Paso 3: Obtener todos los valores del Enum y ponerlos en el ComboBox
         comboTamanio.setItems(FXCollections.observableArrayList(Tamanio.values()));
 
-        // Opcional: Establecer un valor por defecto al iniciar
         comboTamanio.getSelectionModel().select(Tamanio.MEDIANO);
 
         this.app = app;
@@ -52,7 +49,6 @@ public class PerroViewController implements Initializable {
 
         comboTamanio.setItems(FXCollections.observableArrayList(Tamanio.values()));
         comboTamanio.getSelectionModel().selectFirst();
-        // --------------------------------------------------
     }
 
 
@@ -161,7 +157,6 @@ public class PerroViewController implements Initializable {
             EstimarDosisViewController controller = loader.getController();
             controller.setApp(app);
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Estimación de Dosis");
             Scene scene = new Scene(rootLayout);
@@ -199,19 +194,15 @@ public class PerroViewController implements Initializable {
     }
     private void abrirVentanaSugerenciaVacunacion() {
         try {
-            // Cargar el archivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
             Parent root = loader.load();
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Sugerencia de Vacunación");
             stage.setScene(new Scene(root));
 
-            // Hacer la ventana modal (bloquea la ventana anterior)
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
-            // Mostrar la ventana
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -234,23 +225,18 @@ public class PerroViewController implements Initializable {
     }
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerPerro();
 
 
-        // Limpiar la tabla
         tblListMascota.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListMascota.setItems(listMascotas);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
 
@@ -269,7 +255,6 @@ public class PerroViewController implements Initializable {
 
 
 
-        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
 

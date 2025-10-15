@@ -42,20 +42,16 @@ public class EstimarDosisViewController {
     @FXML
     void onCalcularDosis() {
         try {
-            // Validar que los campos no estén vacíos
             if (txtPeso.getText().isEmpty() || txtMiligramosPorKilo.getText().isEmpty()) {
                 mostrarAlerta("Error", "Por favor, complete todos los campos.", Alert.AlertType.WARNING);
                 return;
             }
 
-            // Obtener valores
             double peso = Double.parseDouble(txtPeso.getText());
             double miligramosPorKilo = Double.parseDouble(txtMiligramosPorKilo.getText());
 
-            // Calcular dosis
             double dosis = estimarDosis(peso, miligramosPorKilo);
 
-            // Mostrar resultado
             lblResultado.setText(String.format("La dosis estimada es: %.2f mg", dosis));
             vboxResultado.setVisible(true);
 

@@ -133,7 +133,7 @@ public class AveViewController {
             EstimarDosisViewController controller = loader.getController();
             controller.setApp(app);
 
-            // Crear nueva ventana (Stage)
+
             Stage stage = new Stage();
             stage.setTitle("Estimación de Dosis");
             Scene scene = new Scene(rootLayout);
@@ -151,19 +151,17 @@ public class AveViewController {
     }
     private void abrirVentanaSugerenciaVacunacion() {
         try {
-            // Cargar el archivo FXML
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
             Parent root = loader.load();
 
-            // Crear nueva ventana (Stage)
+
             Stage stage = new Stage();
             stage.setTitle("Sugerencia de Vacunación");
             stage.setScene(new Scene(root));
 
-            // Hacer la ventana modal (bloquea la ventana anterior)
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
-            // Mostrar la ventana
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -212,7 +210,7 @@ public class AveViewController {
 
     @FXML
     void initialize() {
-        aveController = new AveController(App.veterinaria); // Usa la instancia estática si la tienes
+        aveController = new AveController(App.veterinaria);
         toggleGroupIsVueloCorto = new ToggleGroup();
         rbIsVueloCortoSi.setToggleGroup(toggleGroupIsVueloCorto);
         rbIsVueloCortoNo.setToggleGroup(toggleGroupIsVueloCorto);
@@ -221,23 +219,18 @@ public class AveViewController {
 
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerAve();
 
 
-        // Limpiar la tabla
         tblListMascota.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListMascota.setItems(listMascotas);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
 
@@ -254,7 +247,6 @@ public class AveViewController {
         tbcCantidadDeImitaciones.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadDeImitaciones()));
 
 
-        //faltan los atributos de ave
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }

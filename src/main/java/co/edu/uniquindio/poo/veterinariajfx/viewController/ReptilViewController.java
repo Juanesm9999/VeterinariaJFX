@@ -30,11 +30,9 @@ public class ReptilViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
         comboHabitat.setItems(FXCollections.observableArrayList(Habitat.values()));
 
-        // Opcional: Establecer un valor por defecto al iniciar
         comboHabitat.getSelectionModel().select(Habitat.MIXTO);
 
         comboHabitat.setItems(FXCollections.observableArrayList(Habitat.values()));
@@ -53,7 +51,6 @@ public class ReptilViewController implements Initializable {
         this.app = app;
         reptilController = new ReptilController(app.veterinaria);
         initView();
-        // --------------------------------------------------
     }
 
     @FXML
@@ -166,7 +163,6 @@ public class ReptilViewController implements Initializable {
             EstimarDosisViewController controller = loader.getController();
             controller.setApp(app);
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Estimación de Dosis");
             Scene scene = new Scene(rootLayout);
@@ -184,19 +180,15 @@ public class ReptilViewController implements Initializable {
     }
     private void abrirVentanaSugerenciaVacunacion() {
         try {
-            // Cargar el archivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
             Parent root = loader.load();
 
-            // Crear nueva ventana (Stage)
             Stage stage = new Stage();
             stage.setTitle("Sugerencia de Vacunación");
             stage.setScene(new Scene(root));
 
-            // Hacer la ventana modal (bloquea la ventana anterior)
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
-            // Mostrar la ventana
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -241,26 +233,20 @@ public class ReptilViewController implements Initializable {
 
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
         initDataBinding();
 
 
-        // Obtiene la lista
         obtenerReptil();
 
 
-        // Limpiar la tabla
         tblListMascota.getItems().clear();
 
 
-        // Agregar los elementos a la tabla
         tblListMascota.setItems(listMascotas);
 
 
-        // Seleccionar elemento de la tabla
         listenerSelection();
     }
-// String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones
 
     private void initDataBinding() {
         tbcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
@@ -273,7 +259,6 @@ public class ReptilViewController implements Initializable {
         tbcTemperaturaOptima.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTemperaturaOptima()));
         tbcNivelPeligrosidad.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getNivelPeligrosidad()));
 
-        // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
     private void obtenerReptil() {
