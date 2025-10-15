@@ -47,8 +47,6 @@ public class App extends Application {
             ConsultaViewController consultaController = loader.getController();
             consultaController.setApp(this);
 
-            consultaController.getConsultaController().setVeterinaria(veterinaria);
-
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();

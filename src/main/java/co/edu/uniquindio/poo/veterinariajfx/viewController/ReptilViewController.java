@@ -35,6 +35,14 @@ public class ReptilViewController implements Initializable {
 
         comboHabitat.getSelectionModel().select(Habitat.ACUATICO);
 
+        comboNivelPeligrosidad.setItems(FXCollections.observableArrayList(NivelPeligrosidad.values()));
+
+        comboNivelPeligrosidad.getSelectionModel().select(NivelPeligrosidad.ALTO);
+
+        comboNivelPeligrosidad.setItems(FXCollections.observableArrayList(NivelPeligrosidad.values()));
+
+        comboNivelPeligrosidad.getSelectionModel().select(NivelPeligrosidad.MEDIO);
+
         // --------------------------------------------------
     }
 
