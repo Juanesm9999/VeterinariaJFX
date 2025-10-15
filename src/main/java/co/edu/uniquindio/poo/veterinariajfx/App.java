@@ -42,7 +42,7 @@ public class App extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("crudConsulta.fxml"));
-            javafx.scene.layout.AnchorPane rootLayout = loader.load();
+            AnchorPane rootLayout = loader.load();
 
             ConsultaViewController consultaController = loader.getController();
             consultaController.setApp(this);
@@ -50,7 +50,6 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -221,6 +220,11 @@ public class App extends Application {
     public void inicializarData(){
         Ave ave = new Ave("Rocky", "123", "Chihuahua", 10.0, 5, "Perro", "Azul", true, "pocas");
         veterinaria.agregarAve(ave);
+
+        Propietario propietario = new Propietario("Victor", "123", "el hueco", 8.0);
+        veterinaria.agregarPropietario(propietario);
+        Propietario propietario1 = new Propietario("Juan", "1234", "el piso", 5.0);
+
 
         Veterinaria veterinaria1 = new Veterinaria("Vida Animal", "001");
     }

@@ -180,7 +180,13 @@ public class PropietarioViewController {
 
 
     private Propietario buildPropietario() {
-        Propietario propietario = new Propietario(txtId.getText(), txtNombre.getText(), txtDireccion.getText(), Double.parseDouble(txtPuntajeFidelidad.getText()));
+
+        Propietario propietario = new Propietario(
+                txtNombre.getText(),           // nombre (primer parámetro)
+                txtId.getText(),                // id (segundo parámetro)
+                txtDireccion.getText(),         // direccion (tercer parámetro)
+                Double.parseDouble(txtPuntajeFidelidad.getText())  // puntajeFidelidad (cuarto parámetro)
+        );
         return propietario;
     }
 

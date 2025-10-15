@@ -6,6 +6,7 @@ import co.edu.uniquindio.poo.veterinariajfx.controller.SugerenciaVacunacionContr
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
+import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -24,6 +25,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static co.edu.uniquindio.poo.veterinariajfx.App.veterinaria;
+
 
 public class PerroViewController implements Initializable {
     PerroController perroController;
@@ -33,6 +36,8 @@ public class PerroViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        perroController = new PerroController(veterinaria);
+
         // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
         // Paso 3: Obtener todos los valores del Enum y ponerlos en el ComboBox
@@ -41,6 +46,9 @@ public class PerroViewController implements Initializable {
         // Opcional: Establecer un valor por defecto al iniciar
         comboTamanio.getSelectionModel().select(Tamanio.MEDIANO);
 
+        this.app = app;
+        perroController = new PerroController(veterinaria);
+        initView();
         // --------------------------------------------------
     }
 
@@ -222,15 +230,6 @@ public class PerroViewController implements Initializable {
         eliminarMascota();
     }
 
-
-    @FXML
-    void initialize() {
-        this.app = app;
-        perroController = new PerroController(app.veterinaria);
-        initView();
-    }
-
-
     private void initView() {
         // Traer los datos del cliente a la tabla
         initDataBinding();
@@ -259,6 +258,13 @@ public class PerroViewController implements Initializable {
         tbcRaza.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRaza()));
         tbcPeso.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getPeso()));
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
+        tbcEspecie.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecie()));
+        tbcNecesidadPaseosDiarios.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNecesidadPaseosDiarios()));
+        tbcNivelAdiestramiento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivelAdiestramiento()));
+        tbcTamanio.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTamanio()));
+        
+
+
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
@@ -354,6 +360,8 @@ public class PerroViewController implements Initializable {
         txtEdadEnMeses.setEditable(false);
         txtNivelAdiestramiento.clear();
         txtNecesidadPaseosDiarios.clear();
+        txtPeso.clear();
+        txtEspecie.clear();
     }
 
 
