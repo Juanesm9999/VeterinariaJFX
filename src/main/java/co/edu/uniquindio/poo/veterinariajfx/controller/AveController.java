@@ -21,8 +21,7 @@ public class AveController {
     }
 
 
-    public static List<Ave> obtenerListMascotas() {
-        // filtramos las mascotas que son aves
+    public static List<Ave> obtenerListaMascotas() {
         return veterinaria.getListMascotas()
                 .stream()
                 .filter(m -> m instanceof Ave)

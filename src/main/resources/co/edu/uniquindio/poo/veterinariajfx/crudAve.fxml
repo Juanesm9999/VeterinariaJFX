@@ -27,7 +27,6 @@
                                 <TextField fx:id="txtNombre" layoutX="341.0" layoutY="143.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtEspecie" layoutX="341.0" layoutY="176.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtRaza" layoutX="341.0" layoutY="209.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtIsVueloCorto" layoutX="341.0" layoutY="271.0" prefHeight="25.0" prefWidth="194.0" />
                                 <TextField fx:id="txtCantidadDeImitaciones" layoutX="341.0" layoutY="303.0" prefHeight="25.0" prefWidth="194.0" />
                         <TextField fx:id="txtTipoDePlumaje" layoutX="341.0" layoutY="242.0" prefHeight="25.0" prefWidth="194.0" />
                             </children>
@@ -84,6 +83,8 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
+                  <RadioButton fx:id="rbIsVueloCortoSi" layoutX="373.0" layoutY="298.0" mnemonicParsing="false" text="Si" />
+                  <RadioButton fx:id="rbIsVueloCortoNo" layoutX="474.0" layoutY="298.0" mnemonicParsing="false" text="No" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="573.0">

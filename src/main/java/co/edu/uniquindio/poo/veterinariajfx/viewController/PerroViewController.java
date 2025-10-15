@@ -49,6 +49,9 @@ public class PerroViewController implements Initializable {
         this.app = app;
         perroController = new PerroController(veterinaria);
         initView();
+
+        comboTamanio.setItems(FXCollections.observableArrayList(Tamanio.values()));
+        comboTamanio.getSelectionModel().selectFirst();
         // --------------------------------------------------
     }
 
@@ -262,7 +265,7 @@ public class PerroViewController implements Initializable {
         tbcNecesidadPaseosDiarios.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNecesidadPaseosDiarios()));
         tbcNivelAdiestramiento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivelAdiestramiento()));
         tbcTamanio.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTamanio()));
-        
+
 
 
 
@@ -271,7 +274,7 @@ public class PerroViewController implements Initializable {
 
 
     private void obtenerPerro() {
-        listMascotas.addAll(perroController.obtenerListMascotas());
+        listMascotas.addAll(perroController.obtenerListaMascotas());
     }
 
 
@@ -303,6 +306,7 @@ public class PerroViewController implements Initializable {
         if (PerroController.crearPerro(perro)) {
             listMascotas.add(perro);
             limpiarCamposPerro();
+            tblListMascota.refresh();
         }
     }
 

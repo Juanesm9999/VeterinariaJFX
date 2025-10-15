@@ -4,7 +4,6 @@ import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.AveController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Ave;
-import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -25,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class AveViewController {
     AveController aveController;
-    ObservableList<Mascota> listMascotas = FXCollections.observableArrayList();
+    ObservableList<Ave> listMascotas = FXCollections.observableArrayList();
     Ave selectedAve;
 
     @FXML
@@ -34,6 +33,12 @@ public class AveViewController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private RadioButton rbIsVueloCortoSi;
+
+    @FXML
+    private RadioButton rbIsVueloCortoNo;
 
 
     @FXML
@@ -53,8 +58,7 @@ public class AveViewController {
     private TextField txtEspecie;
     @FXML
     private TextField txtTipoDePlumaje;
-    @FXML
-    private TextField txtIsVueloCorto;
+
     @FXML
     private TextField txtCantidadDeImitaciones;
 
@@ -64,7 +68,7 @@ public class AveViewController {
 
 
     @FXML
-    private TableView<Mascota> tblListMascota;
+    private TableView<Ave> tblListMascota;
 
 
     @FXML
@@ -72,7 +76,7 @@ public class AveViewController {
 
 
     @FXML
-    private Button btnActualizarPerro;
+    private Button btnActualizarAve;
 
 
     @FXML
@@ -83,10 +87,10 @@ public class AveViewController {
     private TableColumn<Ave, String> tbcRaza;
 
     @FXML
-    private TableColumn<Ave, String> tbcPeso;
+    private TableColumn<Ave, Double> tbcPeso;
 
     @FXML
-    private TableColumn<Ave, String> tbcEdadEnMeses;
+    private TableColumn<Ave, Integer> tbcEdadEnMeses;
 
     @FXML
     private TableColumn<Ave, String> tbcEspecie;
@@ -95,7 +99,7 @@ public class AveViewController {
     private TableColumn<Ave, String> tbcTipoDePlumaje;
 
     @FXML
-    private TableColumn<Ave, String> tbcIsVueloCorto;
+    private TableColumn<Ave, Boolean> tbcIsVueloCorto;
 
     @FXML
     private TableColumn<Ave, String> tbcCantidadDeImitaciones;
@@ -203,11 +207,15 @@ public class AveViewController {
         eliminarAve();
     }
 
+    private ToggleGroup toggleGroupIsVueloCorto;
+
 
     @FXML
     void initialize() {
-        this.app = app;
-        aveController = new AveController(app.veterinaria);
+        aveController = new AveController(App.veterinaria); // Usa la instancia estática si la tienes
+        toggleGroupIsVueloCorto = new ToggleGroup();
+        rbIsVueloCortoSi.setToggleGroup(toggleGroupIsVueloCorto);
+        rbIsVueloCortoNo.setToggleGroup(toggleGroupIsVueloCorto);
         initView();
     }
 
@@ -242,7 +250,7 @@ public class AveViewController {
         tbcEdadEnMeses.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdadEnMeses()));
         tbcEspecie.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecie()));
         tbcTipoDePlumaje.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTipoDePlumaje()));
-        tbcIsVueloCorto.setCellValueFactory(cellData -> new SimpleStringProperty());
+        tbcIsVueloCorto.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getIsVueloCorto()));
         tbcCantidadDeImitaciones.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCantidadDeImitaciones()));
 
 
@@ -253,7 +261,7 @@ public class AveViewController {
 
 
     private void obtenerAve() {
-        listMascotas.addAll(AveController.obtenerListMascotas());
+        listMascotas.addAll(AveController.obtenerListaMascotas());
     }
 
 
@@ -274,7 +282,11 @@ public class AveViewController {
             txtEdadEnMeses.setText(String.valueOf(ave.getEdadEnMeses()));
             txtPeso.setText(String.valueOf(ave.getPeso()));
             txtTipoDePlumaje.setText(ave.getTipoDePlumaje());
-            txtIsVueloCorto.setText(ave.getIsVueloCorto());
+            if (ave.getIsVueloCorto()) {
+                rbIsVueloCortoSi.setSelected(true);
+            } else {
+                rbIsVueloCortoNo.setSelected(false);
+            }
             txtCantidadDeImitaciones.setText(ave.getCantidadDeImitaciones());
         }
     }
@@ -291,8 +303,8 @@ public class AveViewController {
 
     private Ave buildAve() {
 
-
-        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoDePlumaje.getText(), Boolean.parseBoolean(txtIsVueloCorto.getText()), txtCantidadDeImitaciones.getText());
+        boolean isVueloCorto = rbIsVueloCortoSi.isSelected();
+        Ave ave = new Ave(txtId.getText(), txtNombre.getText(), txtRaza.getText(), Double.parseDouble(txtPeso.getText()), Integer.parseInt(txtEdadEnMeses.getText()), txtEspecie.getText(), txtTipoDePlumaje.getText(), isVueloCorto, txtCantidadDeImitaciones.getText());
         return ave;
     }
 
@@ -341,7 +353,7 @@ public class AveViewController {
         txtEdadEnMeses.clear();
         txtPeso.clear();
         txtTipoDePlumaje.clear();
-        txtIsVueloCorto.clear();
+        toggleGroupIsVueloCorto.selectToggle(null);
         txtCantidadDeImitaciones.clear();
     }
 

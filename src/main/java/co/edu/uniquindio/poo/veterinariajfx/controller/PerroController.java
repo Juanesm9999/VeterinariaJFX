@@ -1,9 +1,11 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
+import co.edu.uniquindio.poo.veterinariajfx.model.Gato;
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 
+import java.util.Collection;
 import java.util.List;
 
 public class PerroController {
@@ -20,8 +22,12 @@ public class PerroController {
     }
 
 
-    public  List<Mascota> obtenerListMascotas() {
-        return veterinaria.getListMascotas();
+    public Collection<? extends Perro> obtenerListaMascotas() {
+        return veterinaria.getListMascotas()
+                .stream()
+                .filter(m -> m instanceof Perro)
+                .map(m -> (Perro) m)
+                .toList();
     }
 
 
