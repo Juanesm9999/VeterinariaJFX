@@ -22,7 +22,6 @@ public class PrimaryViewController {
     @FXML
     private Button primaryButton;
 
-
     @FXML
     void onOpenCrudPerro() {
         app.openCrudPerro();
@@ -52,6 +51,12 @@ public class PrimaryViewController {
     void onOpenCrudAve() {
         app.openCrudAve();
     }
+
+    @FXML
+    void onRankingPropietarios() {
+        app.openViewRankingPropietarios();
+    }
+
 
     public void setApp(App app) {
         this.app = app;

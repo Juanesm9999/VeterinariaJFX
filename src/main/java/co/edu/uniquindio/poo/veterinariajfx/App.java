@@ -199,6 +199,23 @@ public class App extends Application {
         }
     }
 
+    public void openViewRankingPropietarios() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("rankingPropietarios.fxml"));
+            Parent root = loader.load();
+
+            RankingPropietariosViewController controller = loader.getController();
+            controller.setApp(this);
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Ranking de Propietarios - Vida Animal");
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     //servicios
     public void inicializarData(){
