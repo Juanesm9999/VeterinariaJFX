@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.veterinariajfx.model;
 
 public enum Especie {
-    AVE,GATO,PERRO,REPTIL
+    AVE,
+    GATO,
+    PERRO,
+    REPTIL
 }

@@ -1,16 +1,24 @@
 package co.edu.uniquindio.poo.veterinariajfx.controller;
 
+import co.edu.uniquindio.poo.veterinariajfx.model.Especie;
+import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SugerenciaVacunacionController {
+import java.net.URL;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
+public class SugerenciaVacunacionController implements Initializable {
 
     @FXML
-    private ComboBox<String> comboEspecie;
+    private ComboBox<Especie> comboEspecie;
 
     @FXML
     private VBox vboxResultado;
@@ -18,10 +26,27 @@ public class SugerenciaVacunacionController {
     @FXML
     private Label lblResultado;
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
+
+        comboEspecie.setItems(FXCollections.observableArrayList(Especie.values()));
+
+        // Opcional: Establecer un valor por defecto al iniciar
+        comboEspecie.getSelectionModel().select(Especie.GATO);
+
+        comboEspecie.setItems(FXCollections.observableArrayList(Especie.values()));
+
+        comboEspecie.getSelectionModel().select(Especie.PERRO);
+
+        // --------------------------------------------------
+    }
+
     // Método para consultar la vacunación
     @FXML
     private void consultarVacunacion() {
-        String especieSeleccionada = comboEspecie.getValue();
+        String especieSeleccionada = String.valueOf(comboEspecie.getValue());
 
         // Validar que se haya seleccionado una especie
         if (especieSeleccionada == null || especieSeleccionada.isEmpty()) {
