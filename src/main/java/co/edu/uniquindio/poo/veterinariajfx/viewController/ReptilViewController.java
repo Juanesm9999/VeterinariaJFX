@@ -49,6 +49,10 @@ public class ReptilViewController implements Initializable {
 
         comboNivelPeligrosidad.getSelectionModel().select(NivelPeligrosidad.MEDIO);
 
+
+        this.app = app;
+        reptilController = new ReptilController(app.veterinaria);
+        initView();
         // --------------------------------------------------
     }
 
@@ -233,14 +237,6 @@ public class ReptilViewController implements Initializable {
     @FXML
     void onEliminar() {
         eliminarReptil();
-    }
-
-
-    @FXML
-    void initialize() {
-        this.app = app;
-        reptilController = new ReptilController(app.veterinaria);
-        initView();
     }
 
 

@@ -4,6 +4,7 @@ import co.edu.uniquindio.poo.veterinariajfx.App;
 import co.edu.uniquindio.poo.veterinariajfx.controller.ConsultaController;
 import co.edu.uniquindio.poo.veterinariajfx.model.Consulta;
 import co.edu.uniquindio.poo.veterinariajfx.model.TipoConsulta;
+import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -24,7 +25,7 @@ public class ConsultaViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        consultaController = new ConsultaController();
         // --- AQUÍ VA EL MÉTODO PARA POBLAR EL COMBOBOX ---
 
         comboTipoConsulta.setItems(FXCollections.observableArrayList(TipoConsulta.values()));
@@ -36,6 +37,9 @@ public class ConsultaViewController implements Initializable {
 
         comboTipoConsulta.getSelectionModel().select(TipoConsulta.CONSULTA);
 
+        this.app = app;
+        consultaController = new ConsultaController(app.veterinaria);
+        initView();
         // --------------------------------------------------
     }
 
@@ -131,14 +135,6 @@ public class ConsultaViewController implements Initializable {
     @FXML
     void onEliminar() {
         eliminarConsulta();
-    }
-
-
-    @FXML
-    void initialize() {
-        this.app = app;
-        consultaController = new ConsultaController(app.veterinaria);
-        initView();
     }
 
 
@@ -266,6 +262,11 @@ public class ConsultaViewController implements Initializable {
 
     public void setConsultaController(ConsultaController consultaController) {
         this.consultaController = consultaController;
+    }
+
+
+    public void setVeterinaria(Veterinaria veterinaria) {
+        consultaController = new ConsultaController(veterinaria);
     }
 
 

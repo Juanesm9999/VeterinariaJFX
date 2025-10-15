@@ -6,7 +6,6 @@ import co.edu.uniquindio.poo.veterinariajfx.controller.SugerenciaVacunacionContr
 import co.edu.uniquindio.poo.veterinariajfx.model.Mascota;
 import co.edu.uniquindio.poo.veterinariajfx.model.Perro;
 import co.edu.uniquindio.poo.veterinariajfx.model.Tamanio;
-import co.edu.uniquindio.poo.veterinariajfx.model.Veterinaria;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -24,8 +23,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static co.edu.uniquindio.poo.veterinariajfx.App.veterinaria;
 
 
 public class PerroViewController implements Initializable {
@@ -227,10 +224,9 @@ public class PerroViewController implements Initializable {
 
 
     @FXML
-    public void initialize() {
+    void initialize() {
         this.app = app;
-        veterinaria = new Veterinaria("Mi Veterinaria", "123");
-        perroController = new PerroController(veterinaria);
+        perroController = new PerroController(app.veterinaria);
         initView();
     }
 

@@ -8,11 +8,15 @@ import java.util.List;
 
 
 public class ConsultaController {
-    Veterinaria veterinaria;
+    private Veterinaria veterinaria;
 
 
     public ConsultaController(Veterinaria veterinaria) {
         this.veterinaria = veterinaria;
+    }
+
+    public ConsultaController() {
+
     }
 
     public void setVeterinaria(Veterinaria veterinaria) {

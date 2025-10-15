@@ -7,13 +7,14 @@ public class Propietario {
     private String direccion;
     private Double PuntajeFidelidad;
 
-
     // Atributos de Relaciones
     private Mascota[] listMascotas;
 
     public Propietario(String nombre, String id, String direccion, Double PuntajeFidelidad) {
         this.nombre = nombre;
         this.id = id;
+        this.direccion = direccion;  // AGREGADO: inicializar direccion
+        this.PuntajeFidelidad = PuntajeFidelidad;  // AGREGADO: inicializar PuntajeFidelidad
         listMascotas = new Mascota[10];
     }
 
@@ -56,5 +57,4 @@ public class Propietario {
     public void setListMascotas(Mascota[] listMascotas) {
         this.listMascotas = listMascotas;
     }
-
 }

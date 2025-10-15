@@ -32,7 +32,8 @@ public class Veterinaria {
         boolean centinela = false;
         for (Propietario propietario: listPropietarios) {
             if (propietario.getId().equals(id)) {
-                listMascotas.remove(propietario);
+                // CORREGIDO: debe eliminar de listPropietarios, NO de listMascotas
+                listPropietarios.remove(propietario);
                 centinela = true;
                 break;
             }
@@ -83,7 +84,8 @@ public class Veterinaria {
         boolean centinela = false;
         for (Consulta consulta: listConsultas) {
             if (consulta.getId().equals(id)) {
-                listMascotas.remove(consulta);
+                // CORREGIDO: debe eliminar de listConsultas, NO de listMascotas
+                listConsultas.remove(consulta);
                 centinela = true;
                 break;
             }

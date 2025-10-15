@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.PerroViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.PerroViewController">
     <children>
-        <SplitPane dividerPositions="0.5994358251057827" layoutX="7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="803.0">
+        <SplitPane dividerPositions="0.5853314527503526" layoutX="8.0" layoutY="-25.0" orientation="VERTICAL" prefHeight="748.0" prefWidth="803.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="738.0">
                     <children>
@@ -86,9 +86,9 @@
                         <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                     </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="573.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="801.0">
                     <children>
-                        <TableView fx:id="tblListMascota" layoutX="2.0" layoutY="21.0" prefHeight="222.0" prefWidth="774.0">
+                        <TableView fx:id="tblListMascota" layoutX="2.0" layoutY="21.0" prefHeight="177.0" prefWidth="774.0">
                             <columns>
                                 <TableColumn fx:id="tbcId" prefWidth="49.0" text="Id" />
                                 <TableColumn fx:id="tbcPeso" prefWidth="58.0" text="Peso" />
@@ -102,8 +102,8 @@
       
                             </columns>
                         </TableView>
-                        <Button fx:id="btnLimpiar" layoutX="108.0" layoutY="281.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />
-                        <Button fx:id="btnEliminar" layoutX="318.0" layoutY="275.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="97.0" text="Eliminar" />
+                        <Button fx:id="btnLimpiar" layoutX="104.0" layoutY="215.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />
+                        <Button fx:id="btnEliminar" layoutX="557.0" layoutY="215.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="97.0" text="Eliminar" />
                     </children>
                 </AnchorPane>
             </items>
