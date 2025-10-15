@@ -5,11 +5,13 @@ public class Ave extends Mascota{
     private Boolean isVueloCorto;
     private String CantidadDeImitaciones;
 
-    public Ave(String nombre,String id, String raza, Double peso,Integer edadEnMeses,String especie,String TipoDePlumaje,Boolean CapacidadDeVuelo,String CapacidadDeImitaciones){
-        super(nombre,id,raza,peso,edadEnMeses,especie);
+
+    public Ave(String id, String nombre, String raza, Double peso, Integer edadEnMeses,
+               String especie, String TipoDePlumaje, Boolean isVueloCorto, String CantidadDeImitaciones){
+        super(id, nombre, raza, peso, edadEnMeses, especie);
         this.TipoDePlumaje = TipoDePlumaje;
         this.isVueloCorto = isVueloCorto;
-        this.CantidadDeImitaciones = CapacidadDeImitaciones;
+        this.CantidadDeImitaciones = CantidadDeImitaciones;
     }
 
     public String getTipoDePlumaje() {
@@ -28,7 +30,6 @@ public class Ave extends Mascota{
         return isVueloCorto;
     }
 
-
     public void setIsVueloCorto(Boolean IsVueloCorto) {
         this.isVueloCorto = IsVueloCorto;
     }
@@ -42,24 +43,24 @@ public class Ave extends Mascota{
     }
 
     @Override
-    public double CalcularCostoConsulta(boolean tipoConsulta , double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
+    public double CalcularCostoConsulta(boolean tipoConsulta, double precioBase, Integer edadEnMeses, double costoTotal, String Especie){
         precioBase = precioBase * 1.25;
 
-        if(getEdadEnMeses()>84){
+        if(getEdadEnMeses() > 84){
             costoTotal = precioBase * 1.5;
         }
-        for(int i=0;i < getlistConsultas().size();i++){
-            Consulta consulta = getlistConsultas().get(i);
-            if(consulta.getId().equals(id)){
-                if(consulta.getTipoConsulta().equals(tipoConsulta)){
-                    costoTotal = precioBase * 1.75;
+
+        if(getlistConsultas() != null) {
+            for(int i = 0; i < getlistConsultas().size(); i++){
+                Consulta consulta = getlistConsultas().get(i);
+                if(consulta.getId().equals(id)){
+                    if(consulta.getTipoConsulta().equals(tipoConsulta)){
+                        costoTotal = precioBase * 1.75;
+                    }
                 }
             }
-
         }
 
         return costoTotal;
     }
-
-
 }

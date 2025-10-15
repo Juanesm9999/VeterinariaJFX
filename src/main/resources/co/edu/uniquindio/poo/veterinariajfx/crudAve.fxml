@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.AveViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="732.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.veterinariajfx.viewController.AveViewController">
     <children>
-        <SplitPane dividerPositions="0.5994358251057827" layoutX="7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="803.0">
+        <SplitPane dividerPositions="0.5585331452750353" layoutX="14.0" layoutY="-24.0" orientation="VERTICAL" prefHeight="711.0" prefWidth="803.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="738.0">
                     <children>
@@ -31,8 +31,8 @@
                         <TextField fx:id="txtTipoDePlumaje" layoutX="341.0" layoutY="242.0" prefHeight="25.0" prefWidth="194.0" />
                             </children>
                         </Pane>
-                        <Button fx:id="btbAgregarAve" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarAve" text="Agregar Mascota" />
-                        <Button fx:id="btnActualizarAve" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarAve" text="Actualizar mascota" />
+                        <Button fx:id="btbAgregarAve" layoutX="320.0" layoutY="357.0" mnemonicParsing="false" onAction="#onAgregarAve" text="Agregar Mascota" />
+                        <Button fx:id="btnActualizarAve" layoutX="493.0" layoutY="357.0" mnemonicParsing="false" onAction="#onActualizarAve" text="Actualizar mascota" />
                         <Button fx:id="btnEstimarDosis" layoutX="661.0" layoutY="132.0" onAction="#onEstimarDosis" text="Estimar Dosis" />
                         <Button fx:id="btbFechaVacunacion" layoutX="642.0" layoutY="189.0" mnemonicParsing="false" onAction="#onProximaVacunacion" text="Proxima Vacunacion" />
                         <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
@@ -103,8 +103,8 @@
 
                             </columns>
                         </TableView>
-                        <Button fx:id="btnLimpiar" layoutX="108.0" layoutY="281.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />
-                        <Button fx:id="btnEliminar" layoutX="318.0" layoutY="275.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="97.0" text="Eliminar" />
+                        <Button fx:id="btnLimpiar" layoutX="192.0" layoutY="257.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />
+                        <Button fx:id="btnEliminar" layoutX="441.0" layoutY="257.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="97.0" text="Eliminar" />
                     </children>
                 </AnchorPane>
             </items>

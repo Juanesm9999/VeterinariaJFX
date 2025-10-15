@@ -268,12 +268,12 @@ public class AveViewController {
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedAve = (Ave) newSelection;
-            mostrarInformacionPerro(selectedAve);
+            mostrarInformacionAve(selectedAve);
         });
     }
 
 
-    private void mostrarInformacionPerro(Ave ave) {
+    private void mostrarInformacionAve(Ave ave) {
         if (ave != null) {
             txtId.setText(ave.getId());
             txtNombre.setText(ave.getNombre());
