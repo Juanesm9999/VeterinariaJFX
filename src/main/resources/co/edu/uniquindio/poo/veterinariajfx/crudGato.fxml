@@ -33,7 +33,7 @@
                         <Button fx:id="btbAgregarGato" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAgregarGato" text="Agregar Gato" />
                         <Button fx:id="btnActualizarGato" layoutX="534.0" layoutY="382.0" mnemonicParsing="false" onAction="#onActualizarGato" text="Actualizar Gato" />
                         <Button fx:id="btnEstimarDosis" layoutX="661.0" layoutY="132.0" onAction="#onEstimarDosis" text="Estimar Dosis" />
-                        <Button layoutX="642.0" layoutY="189.0" mnemonicParsing="false" text="Proxima Vacunacion" />
+                        <Button fx:id="btbFechaVacunacion" layoutX="642.0" layoutY="189.0" mnemonicParsing="false" onAction="#onProximaVacunacion" text="Proxima Vacunacion" />
                         <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                         <Label layoutX="60.0" layoutY="321.0" text="Nivel de Independencia:" textAlignment="RIGHT">
                             <font>

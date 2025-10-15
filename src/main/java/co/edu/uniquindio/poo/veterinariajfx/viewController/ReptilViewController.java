@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -171,6 +172,41 @@ public class ReptilViewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void onProximaVacunacion() {
+        abrirVentanaSugerenciaVacunacion();
+    }
+    private void abrirVentanaSugerenciaVacunacion() {
+        try {
+            // Cargar el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/veterinariajfx/sugerenciaVacunacion.fxml"));
+            Parent root = loader.load();
+
+            // Crear nueva ventana (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Sugerencia de Vacunación");
+            stage.setScene(new Scene(root));
+
+            // Hacer la ventana modal (bloquea la ventana anterior)
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+            // Mostrar la ventana
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo abrir la ventana de sugerencia de vacunación: " + e.getMessage());
+        }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 
     private App app;
