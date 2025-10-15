@@ -10,9 +10,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -104,6 +109,35 @@ public class AveViewController {
     @FXML
     void onRegresarMenu() {
         app.openViewPrincipal();
+    }
+
+    @FXML
+    private Button btnEstimarDosis;
+
+    @FXML
+    void onEstimarDosis() {
+        abrirVentanaEstimarDosis();
+    }
+
+    private void abrirVentanaEstimarDosis() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("estimarDosis.fxml"));
+            VBox rootLayout = (VBox) loader.load();
+
+            EstimarDosisViewController controller = loader.getController();
+            controller.setApp(app);
+
+            // Crear nueva ventana (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Estimación de Dosis");
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

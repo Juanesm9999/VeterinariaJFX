@@ -81,7 +81,7 @@
                                   <Font size="18.0" />
                               </font>
                           </Label>
-                  <Button layoutX="660.0" layoutY="130.0" mnemonicParsing="false" text="Estimar Dosis" />
+                        <Button fx:id="btnEstimarDosis" layoutX="661.0" layoutY="132.0" onAction="#onEstimarDosis" text="Estimar Dosis" />
                         <Button fx:id="btbFechaVacunacion" layoutX="642.0" layoutY="189.0" mnemonicParsing="false" onAction="#onProximaVacunacion" text="Proxima Vacunacion" />
                         <Button fx:id="btnregresarMenu" layoutX="650.0" layoutY="245.0" mnemonicParsing="false" onAction="#onRegresarMenu" text="Regresar al menu" />
                     </children>
