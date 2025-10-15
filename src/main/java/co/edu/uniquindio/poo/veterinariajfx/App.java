@@ -200,19 +200,24 @@ public class App extends Application {
 
     public void openViewRankingPropietarios() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("rankingPropietarios.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("rankingPropietarios.fxml"));
+
+            VBox root = (VBox) loader.load();
 
             RankingPropietariosViewController controller = loader.getController();
             controller.setApp(this);
 
+
             Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Ranking de Propietarios - Vida Animal");
-            primaryStage.show();
+            Stage stage = new Stage();
+            stage.setTitle("Ranking de Propietarios");
+            stage.setScene(scene);
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("Error al cargar la vista de ranking: " + e.getMessage());
         }
     }
 

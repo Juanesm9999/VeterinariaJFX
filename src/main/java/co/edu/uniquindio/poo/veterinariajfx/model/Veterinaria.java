@@ -412,7 +412,6 @@ public class Veterinaria {
 
 
     public List<Propietario> obtenerRankingPropietarios() {
-
         List<Propietario> propietariosUnicos = new ArrayList<>();
 
 
@@ -428,25 +427,49 @@ public class Veterinaria {
                     if (mascota != null && mascota.getThePropietario() != null) {
                         Propietario propietario = mascota.getThePropietario();
 
-
                         boolean encontrado = false;
                         for (int j = 0; j < propietariosUnicos.size(); j++) {
-                            if (propietariosUnicos.get(j).getNombre().equals(propietario.getNombre())) {
+                            if (propietariosUnicos.get(j).getId().equals(propietario.getId())) {
                                 encontrado = true;
-
                                 double puntajeActual = propietariosUnicos.get(j).getPuntajeFidelidad();
                                 propietariosUnicos.get(j).setPuntajeFidelidad(puntajeActual + 1);
                                 break;
                             }
                         }
 
-
                         if (!encontrado) {
-                            propietario.setPuntajeFidelidad(1.0);
-                            propietariosUnicos.add(propietario);
+                            // Crear copia del propietario para no modificar el original
+                            Propietario propCopia = new Propietario(
+                                    propietario.getNombre(),
+                                    propietario.getId(),
+                                    propietario.getDireccion(),
+                                    1.0  // Primera visita
+                            );
+                            propietariosUnicos.add(propCopia);
                         }
                     }
                 }
+            }
+        }
+
+
+        for (Propietario prop : listPropietarios) {
+            boolean yaEsta = false;
+            for (Propietario propUnico : propietariosUnicos) {
+                if (propUnico.getId().equals(prop.getId())) {
+                    yaEsta = true;
+                    break;
+                }
+            }
+
+            if (!yaEsta) {
+                Propietario propCopia = new Propietario(
+                        prop.getNombre(),
+                        prop.getId(),
+                        prop.getDireccion(),
+                        0.0  // Sin visitas
+                );
+                propietariosUnicos.add(propCopia);
             }
         }
 

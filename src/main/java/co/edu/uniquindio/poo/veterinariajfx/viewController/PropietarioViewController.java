@@ -108,6 +108,11 @@ public class PropietarioViewController {
 
     @FXML
     void initialize() {
+        // NO inicializar aquí porque app es null todavía
+        // Solo se debe hacer después de setApp()
+    }
+
+    public void setApp(App app) {
         this.app = app;
         propietarioController = new PropietarioController(app.veterinaria);
         initView();
@@ -234,9 +239,7 @@ public class PropietarioViewController {
     }
 
 
-    public void setApp(App app) {
-        this.app = app;
-    }
+
 
     public PropietarioController getPropietarioController() {
 
